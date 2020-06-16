@@ -3,21 +3,10 @@ language: swift
 cache:
   cocoapods: true
 
+env:
+ ZCASH_NETWORK_ENVIRONMENT : TESTNET
 before_install:
 - brew update
-
-jobs:
-  include:
-    - stage: Install cocoapods
-      install:
-        - brew outdated cocoapods || brew upgrade cocoapods
-        - pod install 
-    - stage: Build - Zircles
-      script:
-
-        # Build with Carthage
-        - set -o pipefail && xcodebuild test -workspace Zircles.xcworkspace -scheme Zircles -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.5' ONLY_ACTIVE_ARCH=YES | xcpretty
-
-        # Generate and Upload Code Coverage
-        # - slather
-        # - bash <(curl -s https://codecov.io/bash)
+xcode_project:  Zircles.xcworkspace # path to your xcodeproj folder
+xcode_scheme: Zircles
+xcode_destination: platform=iOS Simulator,OS=13.5,name=iPhone 8
