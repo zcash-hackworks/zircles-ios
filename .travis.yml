@@ -7,6 +7,6 @@ env:
  ZCASH_NETWORK_ENVIRONMENT : TESTNET
 before_install:
 - brew update
-xcode_project:  Zircles.xcworkspace # path to your xcodeproj folder
+xcode_project: Zircles.xcworkspace # path to your xcodeproj folder
 xcode_scheme: Zircles
 xcode_destination: platform=iOS Simulator,OS=13.5,name=iPhone 8
