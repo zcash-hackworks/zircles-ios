@@ -88,3 +88,14 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+
+#ignore Pods directory for example project 
+Pods
+
+# do not commit generated libraries to this repo
+lib
+*.a
+*.generated.swift
+env-vars.sh
+

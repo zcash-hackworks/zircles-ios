@@ -1,0 +1,23 @@
+osx_image: xcode11.5
+language: swift
+cache:
+  cocoapods: true
+
+before_install:
+- brew update
+
+jobs:
+  include:
+    - stage: Install cocoapods
+      install:
+        - brew outdated cocoapods || brew upgrade cocoapods
+        - pod install 
+    - stage: Build - Zircles
+      script:
+
+        # Build with Carthage
+        - set -o pipefail && xcodebuild test -workspace Zircles.xcworkspace -scheme Zircles -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.5' ONLY_ACTIVE_ARCH=YES | xcpretty
+
+        # Generate and Upload Code Coverage
+        # - slather
+        # - bash <(curl -s https://codecov.io/bash)
