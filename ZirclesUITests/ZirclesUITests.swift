@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+import Zircles
 class ZirclesUITests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -30,7 +30,7 @@ class ZirclesUITests: XCTestCase {
         
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssert(true)
+        
     }
 
     func testLaunchPerformance() throws {

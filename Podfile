@@ -12,9 +12,9 @@ target 'Zircles' do
  end
  
  target 'ZirclesUITests' do 
-   inherit! :search_paths
+   inherit! :complete
  end
-end
+end 
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
