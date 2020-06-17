@@ -18,5 +18,5 @@ install:
  - curl https://z.cash/downloads/sapling-output.params > ${TRAVIS_BUILD_DIR}/Zircles/sapling-output.params
  - curl https://z.cash/downloads/sapling-output.params > ${TRAVIS_BUILD_DIR}/Zircles/sapling-spend.params
 script:
-- set -o pipefail && xcodebuild test -workspace Zircles.xcworkspace -scheme Zircles -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.5' ONLY_ACTIVE_ARCH=YES | xcpretty
+- travis_wait 60 xcodebuild test -UseModernBuildSystem=NO -quiet -workspace Zircles.xcworkspace -scheme Zircles -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.5' ONLY_ACTIVE_ARCH=YES | xcpretty
 
