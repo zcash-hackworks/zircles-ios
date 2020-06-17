@@ -10,7 +10,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        
+        NavigationView {
+            ZStack {
+                Color.background
+                
+            }.navigationBarTitle(Text("Welcome to Zircles"), displayMode: .inline)
+        }
+        
     }
 }
 

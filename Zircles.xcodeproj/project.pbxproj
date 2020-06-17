@@ -15,6 +15,11 @@
 		0D1366B824991A6100F0EB54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1366B624991A6100F0EB54 /* LaunchScreen.storyboard */; };
 		0D1366C324991A6200F0EB54 /* ZirclesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1366C224991A6200F0EB54 /* ZirclesTests.swift */; };
 		0D1366CE24991A6200F0EB54 /* ZirclesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1366CD24991A6200F0EB54 /* ZirclesUITests.swift */; };
+		0D6A22C0249A9C3000B4E946 /* Colors+Zircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22BF249A9C3000B4E946 /* Colors+Zircles.swift */; };
+		0D6A22C5249AB1FC00B4E946 /* ZcashSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */; };
+		0D6A22C7249AB36100B4E946 /* ZcashButtonBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */; };
+		0D6A22C9249AB3CA00B4E946 /* ZcashButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C8249AB3CA00B4E946 /* ZcashButton.swift */; };
+		0D6A22CB249AB61200B4E946 /* Glow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22CA249AB61200B4E946 /* Glow.swift */; };
 		4A79AF7FBA1F1ABC33BDD0DD /* Pods_Zircles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF685DA606F425B52CC5DC2 /* Pods_Zircles.framework */; };
 		9DE24A8E04467408269AD782 /* Pods_ZirclesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBBDF5C4ADB5C51259A3817D /* Pods_ZirclesTests.framework */; };
 		A78732A65E5555C51A0C4D44 /* Pods_Zircles_ZirclesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6205D6783F82D4352213AE76 /* Pods_Zircles_ZirclesUITests.framework */; };
@@ -53,6 +58,11 @@
 		0D1366C924991A6200F0EB54 /* ZirclesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZirclesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1366CD24991A6200F0EB54 /* ZirclesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZirclesUITests.swift; sourceTree = "<group>"; };
 		0D1366CF24991A6200F0EB54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D6A22BF249A9C3000B4E946 /* Colors+Zircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Zircles.swift"; sourceTree = "<group>"; };
+		0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashSymbol.swift; sourceTree = "<group>"; };
+		0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashButtonBackground.swift; sourceTree = "<group>"; };
+		0D6A22C8249AB3CA00B4E946 /* ZcashButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashButton.swift; sourceTree = "<group>"; };
+		0D6A22CA249AB61200B4E946 /* Glow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glow.swift; sourceTree = "<group>"; };
 		0EF685DA606F425B52CC5DC2 /* Pods_Zircles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zircles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F41B44F15E6B8B8AC35DA82 /* Pods-ZirclesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZirclesUITests.debug.xcconfig"; path = "Target Support Files/Pods-ZirclesUITests/Pods-ZirclesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		215B95DF0D4FE064A7C4BD8D /* Pods-ZirclesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZirclesTests.debug.xcconfig"; path = "Target Support Files/Pods-ZirclesTests/Pods-ZirclesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +128,8 @@
 		0D1366AA24991A6000F0EB54 /* Zircles */ = {
 			isa = PBXGroup;
 			children = (
+				0D6A22CC249ACD6C00B4E946 /* Neumorphic */,
+				0D6A22C1249AB12200B4E946 /* Components */,
 				0D1366AB24991A6000F0EB54 /* AppDelegate.swift */,
 				0D1366AD24991A6000F0EB54 /* SceneDelegate.swift */,
 				0D1366AF24991A6000F0EB54 /* ContentView.swift */,
@@ -125,6 +137,7 @@
 				0D1366B624991A6100F0EB54 /* LaunchScreen.storyboard */,
 				0D1366B924991A6100F0EB54 /* Info.plist */,
 				0D1366B324991A6100F0EB54 /* Preview Content */,
+				0D6A22BF249A9C3000B4E946 /* Colors+Zircles.swift */,
 			);
 			path = Zircles;
 			sourceTree = "<group>";
@@ -153,6 +166,24 @@
 				0D1366CF24991A6200F0EB54 /* Info.plist */,
 			);
 			path = ZirclesUITests;
+			sourceTree = "<group>";
+		};
+		0D6A22C1249AB12200B4E946 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				0D6A22C8249AB3CA00B4E946 /* ZcashButton.swift */,
+				0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */,
+				0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */,
+				0D6A22CA249AB61200B4E946 /* Glow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		0D6A22CC249ACD6C00B4E946 /* Neumorphic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Neumorphic;
 			sourceTree = "<group>";
 		};
 		975238D118FF1F3CB6500EF4 /* Frameworks */ = {
@@ -419,8 +450,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6A22C9249AB3CA00B4E946 /* ZcashButton.swift in Sources */,
+				0D6A22C0249A9C3000B4E946 /* Colors+Zircles.swift in Sources */,
+				0D6A22C5249AB1FC00B4E946 /* ZcashSymbol.swift in Sources */,
 				0D1366AC24991A6000F0EB54 /* AppDelegate.swift in Sources */,
+				0D6A22C7249AB36100B4E946 /* ZcashButtonBackground.swift in Sources */,
 				0D1366AE24991A6000F0EB54 /* SceneDelegate.swift in Sources */,
+				0D6A22CB249AB61200B4E946 /* Glow.swift in Sources */,
 				0D1366B024991A6000F0EB54 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
