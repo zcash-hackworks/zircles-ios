@@ -1,0 +1,22 @@
+osx_image: xcode11.5
+language: swift
+addons:
+  homebrew:
+    packages:
+    - rustup-init
+    - sourcery
+    - curl
+env:
+ ZCASH_NETWORK_ENVIRONMENT : TESTNET
+
+before_install:
+ - gem install cocoapods # Since Travis is not always on latest version
+ - pod install
+ - ${TRAVIS_BUILD_DIR}/Scripts/travis/rust_setup.sh
+
+install:
+ - curl https://z.cash/downloads/sapling-output.params > ${TRAVIS_BUILD_DIR}/Zircles/sapling-output.params
+ - curl https://z.cash/downloads/sapling-output.params > ${TRAVIS_BUILD_DIR}/Zircles/sapling-spend.params
+script:
+- travis_wait 60 xcodebuild test -quiet -UseModernBuildSystem=NO -workspace Zircles.xcworkspace -scheme Zircles -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.5' ONLY_ACTIVE_ARCH=YES
+
