@@ -5,11 +5,11 @@ env:
  ZCASH_NETWORK_ENVIRONMENT : TESTNET
 before_install:
 - brew update
-xcode_project: Zircles.xcworkspace # path to your xcodeproj folder
-xcode_scheme: Zircles
-xcode_destination: platform=iOS Simulator,OS=13.5,name=iPhone 8
 podfile: Example/Podfile
 before_install:
+ - brew install curl
+ - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+ - cargo install -f cargo-lipo
  - gem install cocoapods # Since Travis is not always on latest version
  - pod install
 script:
