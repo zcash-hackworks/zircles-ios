@@ -86,36 +86,27 @@ struct ZcashButtonBackground_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
 //            ZcashBackground()
-            
+            Color.background
             VStack(spacing: 40) {
                 
-                Text("Create new Wallet")
-                    .font(.body)
-                    .foregroundColor(Color.background)
-                    .modifier(ZcashButtonBackground(buttonShape: .chamfered(fillStyle: .solid(color: Color.buttonBlue))))
+                Text("Savings Circle")
+                    .font(.system(size: 20, weight: .bold, design: .default))
+                    .shadow(color:Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.2), radius: 1, x: 0, y: 2)
+                .foregroundColor(Color.buttonBlue)
+                    .modifier(ZcashButtonBackground(buttonShape: .roundedCorners(fillStyle: .solid(color: Color.background))))
+                   
+                    .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.3), radius: 15, x: 10, y: 15)
+                     .shadow(color: Color.white.opacity(0.5), radius: 25, x:-10, y: -10)
                     .frame(height: 50)
-                Text("Create new Wallet")
-                                   .font(.body)
-                                   .foregroundColor(Color.white)
-                    .modifier(ZcashButtonBackground(buttonShape: .chamfered(fillStyle: .outline(color: Color.buttonBlue, lineWidth: 2))))
-                                   .frame(height: 50)
-                Text("Done")
-                    .font(.body)
-                    .foregroundColor(Color.background)
-                    .modifier(ZcashButtonBackground(buttonShape: .chamfered(fillStyle: .gradient(gradient: LinearGradient.zButtonGradient))))
+                   
+                Text("Savings Goal")
+                    .font(.system(size: 20, weight: .bold, design: .default))
+                    .shadow(color:Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.2), radius: 1, x: 0, y: 2)
+                .foregroundColor(Color.background)
+                    .modifier(ZcashButtonBackground(buttonShape: .roundedCorners(fillStyle: .solid(color: Color.buttonBlue))))
+                
+                    .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.5), radius: 25, x: 10, y: 10)
                     .frame(height: 50)
-                
-                Text("Backup Wallet")
-                .font(.body)
-                .foregroundColor(Color.white)
-                    .modifier(ZcashButtonBackground(buttonShape: .chamfered(fillStyle: .outline(color: Color.white, lineWidth: 1))))
-                .frame(height: 50)
-                
-                Text("Done")
-                .font(.body)
-                    .foregroundColor(.white)
-                .modifier(ZcashButtonBackground(buttonShape: .rounded(fillStyle: .gradient(gradient: LinearGradient.zButtonGradient))))
-                .frame(height: 50)
                    
                 
                 Text("Create New Group")
