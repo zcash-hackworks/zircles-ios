@@ -1,14 +1,14 @@
 //
-//  Card.swift
+//  Pie.swift
 //  Zircles
 //
-//  Created by Francisco Gindre on 6/18/20.
+//  Created by Francisco Gindre on 6/19/20.
 //  Copyright © 2020 Electric Coin Company. All rights reserved.
 //
 
 import SwiftUI
 
-struct Card<Content: View>: View {
+struct Pie<Content: View>: View {
     @Binding var isToggled: Bool
     var cornerRadius: CGFloat
     var padding: CGFloat
@@ -27,16 +27,10 @@ struct Card<Content: View>: View {
     }
 }
 
-struct Card_Previews: PreviewProvider {
-    @State static var isToggled: Bool = false
+struct Pie_Previews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            Color.background
-            Card(isOn: $isToggled) {
-                Image(systemName: "heart.fill")
-                .foregroundColor(.gray)
-                .frame(width: 200, height: 200)
-            }
+        Pie(isOn: .constant(false)) {
+            Text("hello")
         }
     }
 }

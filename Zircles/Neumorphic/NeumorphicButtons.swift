@@ -169,14 +169,14 @@ struct ColorfulButtonStyle: ButtonStyle {
 }
 struct SimpleToggleStyle: ToggleStyle {
     var cornerRadius: CGFloat = 5
-    
+    var padding: CGFloat = 30
     func makeBody(configuration: Self.Configuration) -> some View {
         Button(action: {
             configuration.isOn.toggle()
         }) {
             configuration.label
                 .contentShape(RoundedRectangle(cornerRadius: cornerRadius))
-                .padding(30)
+                .padding(padding)
         }
         .background(
             SimpleBackground(isHighlighted: configuration.isOn, shape: RoundedRectangle(cornerRadius: cornerRadius))

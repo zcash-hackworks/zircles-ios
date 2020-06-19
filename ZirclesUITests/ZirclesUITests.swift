@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Zircles
+//import Zircles
 class ZirclesUITests: XCTestCase {
 
     override func setUpWithError() throws {
