@@ -23,7 +23,7 @@ struct Card<Content: View>: View {
         Toggle(isOn: $isToggled) {
             content
         }
-        .toggleStyle(SimpleToggleStyle(cornerRadius: cornerRadius, padding: padding))
+        .toggleStyle(SimpleToggleStyle(shape: RoundedRectangle(cornerRadius: cornerRadius), padding: padding))
     }
 }
 

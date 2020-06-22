@@ -160,7 +160,7 @@ struct ZcashChamferedButtonBackground: Shape {
 struct ZcashButton_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.black
+            Color.background
             VStack {
             ZcashButton(color: Color.buttonBlue, fill: Color.clear, text: "Create New Wallet")
                 .frame(width: 300, height: 60)

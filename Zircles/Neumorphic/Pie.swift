@@ -23,14 +23,30 @@ struct Pie<Content: View>: View {
         Toggle(isOn: $isToggled) {
             content
         }
-        .toggleStyle(SimpleToggleStyle(cornerRadius: cornerRadius, padding: padding))
+        .toggleStyle(SimpleToggleStyle(shape: Circle(), padding: padding))
     }
 }
 
 struct Pie_Previews: PreviewProvider {
     static var previews: some View {
-        Pie(isOn: .constant(false)) {
-            Text("hello")
+        ZStack {
+            Color.background
+            VStack(spacing: 20) {
+                Pie(isOn: .constant(true)) {
+                    Text("hello")
+                    .padding()
+                }
+                Pie(isOn: .constant(false)) {
+                    Text("good bye")
+                    .padding()
+                }
+                Pie(isOn: .constant(true)) {
+                    Pie(isOn: .constant(false)) {
+                                      Text("good bye")
+                                      .padding()
+                                  }
+                }
+            }
         }
     }
 }

@@ -15,8 +15,24 @@ struct SplashScreen: View {
             ZStack {
                 Color.background
                     .edgesIgnoringSafeArea(.all)
-                FancyLogo()
-                    .frame(width: 100, height: 200)
+                VStack {
+                    Spacer()
+                    FancyLogo()
+                        .frame(width: 200, height: 200)
+                    Spacer()
+                    Button(action: {}) {
+                        Text("Create New")
+                            .font(.system(size: 20, weight: .bold, design: .default))
+                            .shadow(color:Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.2), radius: 1, x: 0, y: 2)
+                        .foregroundColor(Color.background)
+                            .modifier(ZcashButtonBackground(buttonShape: .roundedCorners(fillStyle: .solid(color: Color.buttonBlue))))
+                        
+                            .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.5), radius: 25, x: 10, y: 10)
+                            .frame(height: 50)
+                    }
+                }.padding(30)
+                
+                
             }.navigationBarTitle(Text("Welcome to Zircles"))
         }
         
@@ -25,16 +41,33 @@ struct SplashScreen: View {
 
 struct FancyLogo: View {
     var body: some View {
-        GeometryReader { geometry in
-            
-            ZStack {
-                
-                ZcashSymbol().path(in: geometry.frame(in: .local))
-                    .fill(Color.gray)
-                
-                ZircleProgress(progress: 0.75)
-                    .glow(vibe: .heavy, soul: .split(left: Color.gradientPink, right: Color.gradientOrange))
+
+        ZStack {
+            Pie(isOn: .constant(false),padding: 16) {
+                    Pie(isOn: .constant(true), padding: 40) {
+                        Pie(isOn: .constant(false)) {
+                            
+                            Text("")
+                            .padding(40)
+                            
+                        }
+                        
+                    }
+                    .overlay(
+                        ZircleProgress(progress: 0.75, stroke:  .init(lineWidth: 40, lineCap: .round))
+                        .padding(23)
+                        
+                    )
+                    
             }
+            Text("$")
+            .foregroundColor(.buttonGray)
+            .font(
+                .custom("Zboto", size: 200)
+            ).padding()
+                .frame(alignment: .center)
+            .contentShape(Circle())
+            .offset(x: 0, y: 50)
         }
     }
 }

@@ -23,6 +23,7 @@
 		0D1366B824991A6100F0EB54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1366B624991A6100F0EB54 /* LaunchScreen.storyboard */; };
 		0D1366C324991A6200F0EB54 /* ZirclesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1366C224991A6200F0EB54 /* ZirclesTests.swift */; };
 		0D1366CE24991A6200F0EB54 /* ZirclesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1366CD24991A6200F0EB54 /* ZirclesUITests.swift */; };
+		0D5142C324A0F0B800F9AE2E /* Zboto.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D5142C224A0F0B800F9AE2E /* Zboto.otf */; };
 		0D6A22C0249A9C3000B4E946 /* Colors+Zircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22BF249A9C3000B4E946 /* Colors+Zircles.swift */; };
 		0D6A22C5249AB1FC00B4E946 /* ZcashSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */; };
 		0D6A22C7249AB36100B4E946 /* ZcashButtonBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */; };
@@ -70,6 +71,7 @@
 		0D1366C924991A6200F0EB54 /* ZirclesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZirclesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1366CD24991A6200F0EB54 /* ZirclesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZirclesUITests.swift; sourceTree = "<group>"; };
 		0D1366CF24991A6200F0EB54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D5142C224A0F0B800F9AE2E /* Zboto.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zboto.otf; sourceTree = "<group>"; };
 		0D6A22BF249A9C3000B4E946 /* Colors+Zircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Zircles.swift"; sourceTree = "<group>"; };
 		0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashSymbol.swift; sourceTree = "<group>"; };
 		0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashButtonBackground.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		0D1366AA24991A6000F0EB54 /* Zircles */ = {
 			isa = PBXGroup;
 			children = (
+				0D5142C224A0F0B800F9AE2E /* Zboto.otf */,
 				0D11D3D5249D2E0400223146 /* Utils */,
 				0D6A22CC249ACD6C00B4E946 /* Neumorphic */,
 				0D6A22C1249AB12200B4E946 /* Components */,
@@ -313,6 +316,7 @@
 			files = (
 				0D1366B824991A6100F0EB54 /* LaunchScreen.storyboard in Resources */,
 				0D1366B524991A6100F0EB54 /* Preview Assets.xcassets in Resources */,
+				0D5142C324A0F0B800F9AE2E /* Zboto.otf in Resources */,
 				0D1366B224991A6100F0EB54 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

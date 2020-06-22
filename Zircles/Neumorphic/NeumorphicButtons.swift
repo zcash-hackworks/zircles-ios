@@ -167,19 +167,19 @@ struct ColorfulButtonStyle: ButtonStyle {
             .animation(nil)
     }
 }
-struct SimpleToggleStyle: ToggleStyle {
-    var cornerRadius: CGFloat = 5
+struct SimpleToggleStyle<S :Shape>: ToggleStyle {
+    let shape: S
     var padding: CGFloat = 30
     func makeBody(configuration: Self.Configuration) -> some View {
         Button(action: {
             configuration.isOn.toggle()
         }) {
             configuration.label
-                .contentShape(RoundedRectangle(cornerRadius: cornerRadius))
+                .contentShape(shape)
                 .padding(padding)
         }
         .background(
-            SimpleBackground(isHighlighted: configuration.isOn, shape: RoundedRectangle(cornerRadius: cornerRadius))
+            SimpleBackground(isHighlighted: configuration.isOn, shape: shape)
         )
     }
 }
@@ -240,9 +240,9 @@ struct NeumorphicContentView: View {
                     Toggle(isOn: $isToggled) {
                         Image(systemName: "heart.fill")
                             .foregroundColor(.gray)
-                            .frame(width: 200, height: 200)
+                           
                     }
-                    .toggleStyle(SimpleToggleStyle(cornerRadius: 50))
+                    .toggleStyle(SimpleToggleStyle(shape: RoundedRectangle(cornerRadius: 5)))
                 }
             }
         }
