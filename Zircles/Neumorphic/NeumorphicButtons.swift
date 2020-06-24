@@ -184,6 +184,21 @@ struct SimpleToggleStyle<S :Shape>: ToggleStyle {
     }
 }
 
+struct GlowingBackground<S: Shape>: View {
+        
+    var shape: S
+    
+    var body: some View {
+        shape
+            .fill(LinearGradient.zButtonGradient)
+            .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.3), radius: 15, x: 10, y: 15)
+            .glow(vibe: .cool, soul: .split(left: .gradientPink, right: .gradientOrange))
+            .shadow(color: Color.white.opacity(0.5), radius: 25, x:-10, y: -10)
+    }
+    
+
+}
+
 struct ColorfulToggleStyle: ToggleStyle {
     
     
@@ -200,6 +215,38 @@ struct ColorfulToggleStyle: ToggleStyle {
         )
     }
 }
+
+struct GlowingToggleStyle<S :Shape>: ToggleStyle {
+    let shape: S
+    var padding: CGFloat = 30
+    var onToggle: (() -> ())? = nil
+    func makeBody(configuration: Self.Configuration) -> some View {
+        Button(action: {
+            configuration.isOn.toggle()
+            onToggle?()
+        }) {
+            configuration.label
+                .contentShape(shape)
+                .padding(padding)
+        }
+        .background(
+            backgroundViewIf(isOn: configuration.isOn)
+        )
+    }
+    
+    func backgroundViewIf(isOn: Bool) -> AnyView {
+        if isOn {
+            return AnyView(
+                GlowingBackground(shape: shape)
+            )
+        } else {
+            return AnyView(
+                SimpleBackground(isHighlighted: false, shape: shape)
+            )
+        }
+    }
+}
+
 
 struct NeumorphicContentView: View {
     @State private var isToggled = false
@@ -242,7 +289,7 @@ struct NeumorphicContentView: View {
                             .foregroundColor(.gray)
                            
                     }
-                    .toggleStyle(SimpleToggleStyle(shape: RoundedRectangle(cornerRadius: 5)))
+                    .toggleStyle(GlowingToggleStyle(shape: RoundedRectangle(cornerRadius: 5, style: /*@START_MENU_TOKEN@*/.continuous/*@END_MENU_TOKEN@*/)))
                 }
             }
         }

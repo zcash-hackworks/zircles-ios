@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011F91B5D99D6D3CD361F9F2 /* Pods_Zircles_ZirclesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F845C8B4D34C79AD18E87D5 /* Pods_Zircles_ZirclesUITests.framework */; };
 		0D11D3CE249C294E00223146 /* NeumorphicButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11D3CD249C294E00223146 /* NeumorphicButtons.swift */; };
 		0D11D3D0249C3AE400223146 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11D3CF249C3AE300223146 /* Card.swift */; };
 		0D11D3D2249CE6C800223146 /* GlowEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11D3D1249CE6C800223146 /* GlowEffect.swift */; };
@@ -24,11 +25,18 @@
 		0D1366C324991A6200F0EB54 /* ZirclesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1366C224991A6200F0EB54 /* ZirclesTests.swift */; };
 		0D1366CE24991A6200F0EB54 /* ZirclesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1366CD24991A6200F0EB54 /* ZirclesUITests.swift */; };
 		0D5142C324A0F0B800F9AE2E /* Zboto.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0D5142C224A0F0B800F9AE2E /* Zboto.otf */; };
+		0D5142C624A14D0F00F9AE2E /* CreateNewZircleNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5142C524A14D0F00F9AE2E /* CreateNewZircleNameView.swift */; };
+		0D5142C824A16F9600F9AE2E /* CreateNewTypeOfZircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5142C724A16F9600F9AE2E /* CreateNewTypeOfZircle.swift */; };
+		0D64CEA624A3854C0080AA4F /* ZircleOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEA524A3854C0080AA4F /* ZircleOptionSelector.swift */; };
 		0D6A22C0249A9C3000B4E946 /* Colors+Zircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22BF249A9C3000B4E946 /* Colors+Zircles.swift */; };
 		0D6A22C5249AB1FC00B4E946 /* ZcashSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */; };
 		0D6A22C7249AB36100B4E946 /* ZcashButtonBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */; };
 		0D6A22C9249AB3CA00B4E946 /* ZcashButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C8249AB3CA00B4E946 /* ZcashButton.swift */; };
 		0D6A22CB249AB61200B4E946 /* Glow_Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22CA249AB61200B4E946 /* Glow_Preview.swift */; };
+		0DEE59A824A24B7300447C15 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE59A724A24B7300447C15 /* WelcomeView.swift */; };
+		0DEE59AA24A2B90F00447C15 /* CreateNewZircleDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE59A924A2B90F00447C15 /* CreateNewZircleDescription.swift */; };
+		450B0C2B71526C48C265CB70 /* Pods_Zircles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 897CFDF9BD39874744EF71AB /* Pods_Zircles.framework */; };
+		C34EA14960A21A0051B8F10C /* Pods_ZirclesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91E549743330119C02B00E6 /* Pods_ZirclesTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,11 +80,25 @@
 		0D1366CD24991A6200F0EB54 /* ZirclesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZirclesUITests.swift; sourceTree = "<group>"; };
 		0D1366CF24991A6200F0EB54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D5142C224A0F0B800F9AE2E /* Zboto.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zboto.otf; sourceTree = "<group>"; };
+		0D5142C524A14D0F00F9AE2E /* CreateNewZircleNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewZircleNameView.swift; sourceTree = "<group>"; };
+		0D5142C724A16F9600F9AE2E /* CreateNewTypeOfZircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewTypeOfZircle.swift; sourceTree = "<group>"; };
+		0D64CEA524A3854C0080AA4F /* ZircleOptionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZircleOptionSelector.swift; sourceTree = "<group>"; };
 		0D6A22BF249A9C3000B4E946 /* Colors+Zircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Zircles.swift"; sourceTree = "<group>"; };
 		0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashSymbol.swift; sourceTree = "<group>"; };
 		0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashButtonBackground.swift; sourceTree = "<group>"; };
 		0D6A22C8249AB3CA00B4E946 /* ZcashButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashButton.swift; sourceTree = "<group>"; };
 		0D6A22CA249AB61200B4E946 /* Glow_Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glow_Preview.swift; sourceTree = "<group>"; };
+		0DEE59A724A24B7300447C15 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		0DEE59A924A2B90F00447C15 /* CreateNewZircleDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewZircleDescription.swift; sourceTree = "<group>"; };
+		5A3D0DB1D10FF551A7DE4766 /* Pods-Zircles-ZirclesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zircles-ZirclesUITests.release.xcconfig"; path = "Target Support Files/Pods-Zircles-ZirclesUITests/Pods-Zircles-ZirclesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		632A35F96E76CAFFF5A77957 /* Pods-Zircles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zircles.release.xcconfig"; path = "Target Support Files/Pods-Zircles/Pods-Zircles.release.xcconfig"; sourceTree = "<group>"; };
+		87E629B4CE118A29370F73F3 /* Pods-ZirclesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZirclesTests.debug.xcconfig"; path = "Target Support Files/Pods-ZirclesTests/Pods-ZirclesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		897CFDF9BD39874744EF71AB /* Pods_Zircles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zircles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E0B7DB0E1A2F0FEF8077D7 /* Pods-Zircles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zircles.debug.xcconfig"; path = "Target Support Files/Pods-Zircles/Pods-Zircles.debug.xcconfig"; sourceTree = "<group>"; };
+		9F845C8B4D34C79AD18E87D5 /* Pods_Zircles_ZirclesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zircles_ZirclesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13AD6343DA9B2868122ADE2 /* Pods-Zircles-ZirclesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zircles-ZirclesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Zircles-ZirclesUITests/Pods-Zircles-ZirclesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A91E549743330119C02B00E6 /* Pods_ZirclesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZirclesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4CFEB91A25E4B80FE82D3B6 /* Pods-ZirclesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZirclesTests.release.xcconfig"; path = "Target Support Files/Pods-ZirclesTests/Pods-ZirclesTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				450B0C2B71526C48C265CB70 /* Pods_Zircles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34EA14960A21A0051B8F10C /* Pods_ZirclesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,12 +122,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011F91B5D99D6D3CD361F9F2 /* Pods_Zircles_ZirclesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C3A96DFA218F5AF7B12EECA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				897CFDF9BD39874744EF71AB /* Pods_Zircles.framework */,
+				9F845C8B4D34C79AD18E87D5 /* Pods_Zircles_ZirclesUITests.framework */,
+				A91E549743330119C02B00E6 /* Pods_ZirclesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0D11D3D5249D2E0400223146 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +156,7 @@
 				0D1366CC24991A6200F0EB54 /* ZirclesUITests */,
 				0D1366A924991A6000F0EB54 /* Products */,
 				E7393F4D108BAE27C875D7F0 /* Pods */,
+				0C3A96DFA218F5AF7B12EECA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,13 +173,13 @@
 		0D1366AA24991A6000F0EB54 /* Zircles */ = {
 			isa = PBXGroup;
 			children = (
+				0D5142C424A1323900F9AE2E /* Views */,
 				0D5142C224A0F0B800F9AE2E /* Zboto.otf */,
 				0D11D3D5249D2E0400223146 /* Utils */,
 				0D6A22CC249ACD6C00B4E946 /* Neumorphic */,
 				0D6A22C1249AB12200B4E946 /* Components */,
 				0D1366AB24991A6000F0EB54 /* AppDelegate.swift */,
 				0D1366AD24991A6000F0EB54 /* SceneDelegate.swift */,
-				0D1366AF24991A6000F0EB54 /* SplashScreen.swift */,
 				0D1366B124991A6100F0EB54 /* Assets.xcassets */,
 				0D1366B624991A6100F0EB54 /* LaunchScreen.storyboard */,
 				0D1366B924991A6100F0EB54 /* Info.plist */,
@@ -179,6 +215,18 @@
 			path = ZirclesUITests;
 			sourceTree = "<group>";
 		};
+		0D5142C424A1323900F9AE2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D1366AF24991A6000F0EB54 /* SplashScreen.swift */,
+				0D5142C524A14D0F00F9AE2E /* CreateNewZircleNameView.swift */,
+				0D5142C724A16F9600F9AE2E /* CreateNewTypeOfZircle.swift */,
+				0DEE59A724A24B7300447C15 /* WelcomeView.swift */,
+				0DEE59A924A2B90F00447C15 /* CreateNewZircleDescription.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0D6A22C1249AB12200B4E946 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +234,7 @@
 				0D6A22C8249AB3CA00B4E946 /* ZcashButton.swift */,
 				0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */,
 				0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */,
+				0D64CEA524A3854C0080AA4F /* ZircleOptionSelector.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -206,6 +255,12 @@
 		E7393F4D108BAE27C875D7F0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				98E0B7DB0E1A2F0FEF8077D7 /* Pods-Zircles.debug.xcconfig */,
+				632A35F96E76CAFFF5A77957 /* Pods-Zircles.release.xcconfig */,
+				A13AD6343DA9B2868122ADE2 /* Pods-Zircles-ZirclesUITests.debug.xcconfig */,
+				5A3D0DB1D10FF551A7DE4766 /* Pods-Zircles-ZirclesUITests.release.xcconfig */,
+				87E629B4CE118A29370F73F3 /* Pods-ZirclesTests.debug.xcconfig */,
+				D4CFEB91A25E4B80FE82D3B6 /* Pods-ZirclesTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -217,9 +272,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D1366D224991A6200F0EB54 /* Build configuration list for PBXNativeTarget "Zircles" */;
 			buildPhases = (
+				583F514473947A23704D6882 /* [CP] Check Pods Manifest.lock */,
 				0D1366A424991A6000F0EB54 /* Sources */,
 				0D1366A524991A6000F0EB54 /* Frameworks */,
 				0D1366A624991A6000F0EB54 /* Resources */,
+				3682689502C7185C18B587B1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +291,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D1366D524991A6200F0EB54 /* Build configuration list for PBXNativeTarget "ZirclesTests" */;
 			buildPhases = (
+				A367F3C54490115670B559E6 /* [CP] Check Pods Manifest.lock */,
 				0D1366BA24991A6200F0EB54 /* Sources */,
 				0D1366BB24991A6200F0EB54 /* Frameworks */,
 				0D1366BC24991A6200F0EB54 /* Resources */,
@@ -252,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D1366D824991A6200F0EB54 /* Build configuration list for PBXNativeTarget "ZirclesUITests" */;
 			buildPhases = (
+				0B3B7CC7E86905096281CA7A /* [CP] Check Pods Manifest.lock */,
 				0D1366C524991A6200F0EB54 /* Sources */,
 				0D1366C624991A6200F0EB54 /* Frameworks */,
 				0D1366C724991A6200F0EB54 /* Resources */,
+				CD4B40E4A1A39DC46B7C062B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,6 +397,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B3B7CC7E86905096281CA7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zircles-ZirclesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3682689502C7185C18B587B1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zircles/Pods-Zircles-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zircles/Pods-Zircles-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zircles/Pods-Zircles-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		583F514473947A23704D6882 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zircles-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A367F3C54490115670B559E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZirclesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD4B40E4A1A39DC46B7C062B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zircles-ZirclesUITests/Pods-Zircles-ZirclesUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zircles-ZirclesUITests/Pods-Zircles-ZirclesUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zircles-ZirclesUITests/Pods-Zircles-ZirclesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0D1366A424991A6000F0EB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -353,11 +516,16 @@
 				0D1366AE24991A6000F0EB54 /* SceneDelegate.swift in Sources */,
 				0D11D3D0249C3AE400223146 /* Card.swift in Sources */,
 				0D6A22CB249AB61200B4E946 /* Glow_Preview.swift in Sources */,
+				0D5142C624A14D0F00F9AE2E /* CreateNewZircleNameView.swift in Sources */,
+				0DEE59AA24A2B90F00447C15 /* CreateNewZircleDescription.swift in Sources */,
 				0D11D3D7249D2F0B00223146 /* ZircleProgress.swift in Sources */,
 				0D11D3D9249D51FC00223146 /* ZircleTextField_Preview.swift in Sources */,
 				0D11D3D2249CE6C800223146 /* GlowEffect.swift in Sources */,
 				0D11D3DB249D5F1600223146 /* ProgressBar.swift in Sources */,
+				0D5142C824A16F9600F9AE2E /* CreateNewTypeOfZircle.swift in Sources */,
 				0D1366B024991A6000F0EB54 /* SplashScreen.swift in Sources */,
+				0DEE59A824A24B7300447C15 /* WelcomeView.swift in Sources */,
+				0D64CEA624A3854C0080AA4F /* ZircleOptionSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +690,7 @@
 		};
 		0D1366D324991A6200F0EB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98E0B7DB0E1A2F0FEF8077D7 /* Pods-Zircles.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -542,6 +711,7 @@
 		};
 		0D1366D424991A6200F0EB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 632A35F96E76CAFFF5A77957 /* Pods-Zircles.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -562,6 +732,7 @@
 		};
 		0D1366D624991A6200F0EB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87E629B4CE118A29370F73F3 /* Pods-ZirclesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -584,6 +755,7 @@
 		};
 		0D1366D724991A6200F0EB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4CFEB91A25E4B80FE82D3B6 /* Pods-ZirclesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -606,6 +778,7 @@
 		};
 		0D1366D924991A6200F0EB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A13AD6343DA9B2868122ADE2 /* Pods-Zircles-ZirclesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
@@ -626,6 +799,7 @@
 		};
 		0D1366DA24991A6200F0EB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A3D0DB1D10FF551A7DE4766 /* Pods-Zircles-ZirclesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;

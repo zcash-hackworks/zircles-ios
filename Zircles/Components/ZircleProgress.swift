@@ -29,12 +29,8 @@ struct Wedge_Previews: PreviewProvider {
                 ZircleProgress(progress: progress,  stroke: .init(lineWidth: 40, lineCap: .round))
                     .glow(vibe: .heavy, soul: .split(left: Color.gradientPink, right: Color.gradientOrange))
                     .animation(.easeIn)
-                Button(action: {
-                    Self.progress = Double.random(in: 0 ... 1)
-                    print(Self.progress)
-                }) {
-                    Text("Change progress")
-                }
+                
+                Slider(value: $progress)
             }
             .padding(.all, 50)
         }
