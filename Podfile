@@ -3,7 +3,7 @@ use_frameworks!
 
 inhibit_all_warnings!
 target 'Zircles' do 
- pod 'ZcashLightClientKit'
+ pod 'ZcashLightClientKit', :path => "../hackathon-ZcashLightClientKit"
  pod 'KeychainSwift', '~> 19.0.0'
  pod 'MnemonicSwift'
  pod 'lottie-ios'

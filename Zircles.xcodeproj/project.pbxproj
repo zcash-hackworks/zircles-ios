@@ -28,6 +28,21 @@
 		0D5142C624A14D0F00F9AE2E /* CreateNewZircleNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5142C524A14D0F00F9AE2E /* CreateNewZircleNameView.swift */; };
 		0D5142C824A16F9600F9AE2E /* CreateNewTypeOfZircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5142C724A16F9600F9AE2E /* CreateNewTypeOfZircle.swift */; };
 		0D64CEA624A3854C0080AA4F /* ZircleOptionSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEA524A3854C0080AA4F /* ZircleOptionSelector.swift */; };
+		0D64CEA924A3CD1B0080AA4F /* ZirclesEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEA824A3CD1B0080AA4F /* ZirclesEnvironment.swift */; };
+		0D64CEB424A3CDA90080AA4F /* SeedManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEAA24A3CDA80080AA4F /* SeedManagement.swift */; };
+		0D64CEB524A3CDA90080AA4F /* String+Zcash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEAB24A3CDA80080AA4F /* String+Zcash.swift */; };
+		0D64CEB624A3CDA90080AA4F /* MnemonicSeedPhraseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEAC24A3CDA80080AA4F /* MnemonicSeedPhraseProvider.swift */; };
+		0D64CEB724A3CDA90080AA4F /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEAD24A3CDA80080AA4F /* QRCodeGenerator.swift */; };
+		0D64CEB824A3CDA90080AA4F /* MnemonicSeedPhraseHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEAE24A3CDA80080AA4F /* MnemonicSeedPhraseHandling.swift */; };
+		0D64CEB924A3CDA90080AA4F /* URL+Zcash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEAF24A3CDA80080AA4F /* URL+Zcash.swift */; };
+		0D64CEBA24A3CDA90080AA4F /* zECC+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEB024A3CDA80080AA4F /* zECC+SwiftUI.swift */; };
+		0D64CEBB24A3CDA90080AA4F /* CameraAccessHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEB124A3CDA90080AA4F /* CameraAccessHelper.swift */; };
+		0D64CEBC24A3CDA90080AA4F /* BalanceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEB224A3CDA90080AA4F /* BalanceUtils.swift */; };
+		0D64CEBD24A3CDA90080AA4F /* SimpleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEB324A3CDA90080AA4F /* SimpleLogger.swift */; };
+		0D64CEBF24A3D3A30080AA4F /* CombineSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEBE24A3D3A30080AA4F /* CombineSynchronizer.swift */; };
+		0D64CEC124A3F2580080AA4F /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEC024A3F2580080AA4F /* FirstScreen.swift */; };
+		0D64CEC324A4137D0080AA4F /* ZircleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEC224A4137D0080AA4F /* ZircleData.swift */; };
+		0D64CEC524A41AF30080AA4F /* AppDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64CEC424A41AF30080AA4F /* AppDetails.swift */; };
 		0D6A22C0249A9C3000B4E946 /* Colors+Zircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22BF249A9C3000B4E946 /* Colors+Zircles.swift */; };
 		0D6A22C5249AB1FC00B4E946 /* ZcashSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */; };
 		0D6A22C7249AB36100B4E946 /* ZcashButtonBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */; };
@@ -83,6 +98,21 @@
 		0D5142C524A14D0F00F9AE2E /* CreateNewZircleNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewZircleNameView.swift; sourceTree = "<group>"; };
 		0D5142C724A16F9600F9AE2E /* CreateNewTypeOfZircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewTypeOfZircle.swift; sourceTree = "<group>"; };
 		0D64CEA524A3854C0080AA4F /* ZircleOptionSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZircleOptionSelector.swift; sourceTree = "<group>"; };
+		0D64CEA824A3CD1B0080AA4F /* ZirclesEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZirclesEnvironment.swift; sourceTree = "<group>"; };
+		0D64CEAA24A3CDA80080AA4F /* SeedManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedManagement.swift; sourceTree = "<group>"; };
+		0D64CEAB24A3CDA80080AA4F /* String+Zcash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Zcash.swift"; sourceTree = "<group>"; };
+		0D64CEAC24A3CDA80080AA4F /* MnemonicSeedPhraseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicSeedPhraseProvider.swift; sourceTree = "<group>"; };
+		0D64CEAD24A3CDA80080AA4F /* QRCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeGenerator.swift; sourceTree = "<group>"; };
+		0D64CEAE24A3CDA80080AA4F /* MnemonicSeedPhraseHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicSeedPhraseHandling.swift; sourceTree = "<group>"; };
+		0D64CEAF24A3CDA80080AA4F /* URL+Zcash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Zcash.swift"; sourceTree = "<group>"; };
+		0D64CEB024A3CDA80080AA4F /* zECC+SwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "zECC+SwiftUI.swift"; sourceTree = "<group>"; };
+		0D64CEB124A3CDA90080AA4F /* CameraAccessHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraAccessHelper.swift; sourceTree = "<group>"; };
+		0D64CEB224A3CDA90080AA4F /* BalanceUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceUtils.swift; sourceTree = "<group>"; };
+		0D64CEB324A3CDA90080AA4F /* SimpleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLogger.swift; sourceTree = "<group>"; };
+		0D64CEBE24A3D3A30080AA4F /* CombineSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineSynchronizer.swift; sourceTree = "<group>"; };
+		0D64CEC024A3F2580080AA4F /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
+		0D64CEC224A4137D0080AA4F /* ZircleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZircleData.swift; sourceTree = "<group>"; };
+		0D64CEC424A41AF30080AA4F /* AppDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetails.swift; sourceTree = "<group>"; };
 		0D6A22BF249A9C3000B4E946 /* Colors+Zircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Zircles.swift"; sourceTree = "<group>"; };
 		0D6A22C4249AB1FC00B4E946 /* ZcashSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashSymbol.swift; sourceTree = "<group>"; };
 		0D6A22C6249AB36100B4E946 /* ZcashButtonBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZcashButtonBackground.swift; sourceTree = "<group>"; };
@@ -142,8 +172,20 @@
 		0D11D3D5249D2E0400223146 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0D64CEB224A3CDA90080AA4F /* BalanceUtils.swift */,
+				0D64CEB124A3CDA90080AA4F /* CameraAccessHelper.swift */,
+				0D64CEAE24A3CDA80080AA4F /* MnemonicSeedPhraseHandling.swift */,
+				0D64CEAC24A3CDA80080AA4F /* MnemonicSeedPhraseProvider.swift */,
+				0D64CEAD24A3CDA80080AA4F /* QRCodeGenerator.swift */,
+				0D64CEAA24A3CDA80080AA4F /* SeedManagement.swift */,
+				0D64CEB324A3CDA90080AA4F /* SimpleLogger.swift */,
+				0D64CEAB24A3CDA80080AA4F /* String+Zcash.swift */,
+				0D64CEAF24A3CDA80080AA4F /* URL+Zcash.swift */,
+				0D64CEB024A3CDA80080AA4F /* zECC+SwiftUI.swift */,
 				0D11D3D8249D51FC00223146 /* ZircleTextField_Preview.swift */,
 				0D6A22CA249AB61200B4E946 /* Glow_Preview.swift */,
+				0D64CEC024A3F2580080AA4F /* FirstScreen.swift */,
+				0D64CEC224A4137D0080AA4F /* ZircleData.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -173,6 +215,8 @@
 		0D1366AA24991A6000F0EB54 /* Zircles */ = {
 			isa = PBXGroup;
 			children = (
+				0D64CEBE24A3D3A30080AA4F /* CombineSynchronizer.swift */,
+				0D64CEA724A3CD040080AA4F /* Environment */,
 				0D5142C424A1323900F9AE2E /* Views */,
 				0D5142C224A0F0B800F9AE2E /* Zboto.otf */,
 				0D11D3D5249D2E0400223146 /* Utils */,
@@ -223,8 +267,17 @@
 				0D5142C724A16F9600F9AE2E /* CreateNewTypeOfZircle.swift */,
 				0DEE59A724A24B7300447C15 /* WelcomeView.swift */,
 				0DEE59A924A2B90F00447C15 /* CreateNewZircleDescription.swift */,
+				0D64CEC424A41AF30080AA4F /* AppDetails.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0D64CEA724A3CD040080AA4F /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				0D64CEA824A3CD1B0080AA4F /* ZirclesEnvironment.swift */,
+			);
+			path = Environment;
 			sourceTree = "<group>";
 		};
 		0D6A22C1249AB12200B4E946 /* Components */ = {
@@ -506,23 +559,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D6A22C9249AB3CA00B4E946 /* ZcashButton.swift in Sources */,
+				0D64CEB924A3CDA90080AA4F /* URL+Zcash.swift in Sources */,
+				0D64CEC524A41AF30080AA4F /* AppDetails.swift in Sources */,
 				0D6A22C0249A9C3000B4E946 /* Colors+Zircles.swift in Sources */,
 				0D11D3DD249D81B900223146 /* Pie.swift in Sources */,
+				0D64CEB824A3CDA90080AA4F /* MnemonicSeedPhraseHandling.swift in Sources */,
 				0D6A22C5249AB1FC00B4E946 /* ZcashSymbol.swift in Sources */,
 				0D1366AC24991A6000F0EB54 /* AppDelegate.swift in Sources */,
 				0D11D3CE249C294E00223146 /* NeumorphicButtons.swift in Sources */,
 				0D6A22C7249AB36100B4E946 /* ZcashButtonBackground.swift in Sources */,
+				0D64CEB624A3CDA90080AA4F /* MnemonicSeedPhraseProvider.swift in Sources */,
 				0D11D3D4249D05D800223146 /* Wedge.swift in Sources */,
 				0D1366AE24991A6000F0EB54 /* SceneDelegate.swift in Sources */,
 				0D11D3D0249C3AE400223146 /* Card.swift in Sources */,
+				0D64CEB724A3CDA90080AA4F /* QRCodeGenerator.swift in Sources */,
+				0D64CEBF24A3D3A30080AA4F /* CombineSynchronizer.swift in Sources */,
 				0D6A22CB249AB61200B4E946 /* Glow_Preview.swift in Sources */,
 				0D5142C624A14D0F00F9AE2E /* CreateNewZircleNameView.swift in Sources */,
 				0DEE59AA24A2B90F00447C15 /* CreateNewZircleDescription.swift in Sources */,
 				0D11D3D7249D2F0B00223146 /* ZircleProgress.swift in Sources */,
 				0D11D3D9249D51FC00223146 /* ZircleTextField_Preview.swift in Sources */,
+				0D64CEC124A3F2580080AA4F /* FirstScreen.swift in Sources */,
+				0D64CEBA24A3CDA90080AA4F /* zECC+SwiftUI.swift in Sources */,
 				0D11D3D2249CE6C800223146 /* GlowEffect.swift in Sources */,
+				0D64CEB524A3CDA90080AA4F /* String+Zcash.swift in Sources */,
 				0D11D3DB249D5F1600223146 /* ProgressBar.swift in Sources */,
+				0D64CEBD24A3CDA90080AA4F /* SimpleLogger.swift in Sources */,
+				0D64CEBC24A3CDA90080AA4F /* BalanceUtils.swift in Sources */,
 				0D5142C824A16F9600F9AE2E /* CreateNewTypeOfZircle.swift in Sources */,
+				0D64CEBB24A3CDA90080AA4F /* CameraAccessHelper.swift in Sources */,
+				0D64CEB424A3CDA90080AA4F /* SeedManagement.swift in Sources */,
+				0D64CEC324A4137D0080AA4F /* ZircleData.swift in Sources */,
+				0D64CEA924A3CD1B0080AA4F /* ZirclesEnvironment.swift in Sources */,
 				0D1366B024991A6000F0EB54 /* SplashScreen.swift in Sources */,
 				0DEE59A824A24B7300447C15 /* WelcomeView.swift in Sources */,
 				0D64CEA624A3854C0080AA4F /* ZircleOptionSelector.swift in Sources */,

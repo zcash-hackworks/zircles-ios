@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+let logger = SimpleLogger(logLevel: .debug)
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

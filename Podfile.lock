@@ -69,7 +69,7 @@ DEPENDENCIES:
   - KeychainSwift (~> 19.0.0)
   - lottie-ios
   - MnemonicSwift
-  - ZcashLightClientKit
+  - ZcashLightClientKit (from `../hackathon-ZcashLightClientKit`)
 
 SPEC REPOS:
   trunk:
@@ -97,7 +97,10 @@ SPEC REPOS:
     - SwiftNIOTLS
     - SwiftNIOTransportServices
     - SwiftProtobuf
-    - ZcashLightClientKit
+
+EXTERNAL SOURCES:
+  ZcashLightClientKit:
+    :path: "../hackathon-ZcashLightClientKit"
 
 SPEC CHECKSUMS:
   CGRPCZlib: 06247b0687f3a3edbfbfb204d53721c3ba262a34
@@ -126,6 +129,6 @@ SPEC CHECKSUMS:
   SwiftProtobuf: ecbec1be9036d15655f6b3443a1c4ea693c97932
   ZcashLightClientKit: d23fd0513acf929deb5b2a7ef803b03ceda7afb9
 
-PODFILE CHECKSUM: 45c93ff87749c1bbd2a0f94715cb8be9a0c546ae
+PODFILE CHECKSUM: aa8517fa897eca8d3c5d128fe3489e0dea05708e
 
 COCOAPODS: 1.9.3

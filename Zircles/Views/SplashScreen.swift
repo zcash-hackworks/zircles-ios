@@ -11,53 +11,50 @@ import SwiftUI
 struct SplashScreen: View {
     var body: some View {
         
-        NavigationView {
-            ZStack {
-                Color.background
-                    .edgesIgnoringSafeArea(.all)
-                VStack {
-                    Toggle(isOn: .constant(false)) {
-                        Text("No Proyects Yet")
-                            .foregroundColor(Color.textLightGray)
-                            .fontWeight(.heavy)
+        ZStack {
+            Color.background
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Toggle(isOn: .constant(false)) {
+                    Text("No Proyects Yet")
+                        .foregroundColor(Color.textLightGray)
+                        .fontWeight(.heavy)
                         .contentShape(RoundedRectangle(cornerRadius: 5))
                         .scaledToFill()
-                            .frame(width: 250)
-                    }
-                    .contentShape(RoundedRectangle(cornerRadius: 5))
-                    .toggleStyle(SimpleToggleStyle(shape: RoundedRectangle(cornerRadius: 5), padding: 8))
-                    Spacer()
-                    FancyLogo()
-                        .frame(width: 200, height: 200)
-                    Spacer()
-                    VStack(spacing: 16) {
-                        Text("Join a Zircle")
+                        .frame(width: 250)
+                }
+                .contentShape(RoundedRectangle(cornerRadius: 5))
+                .toggleStyle(SimpleToggleStyle(shape: RoundedRectangle(cornerRadius: 5), padding: 8))
+                Spacer()
+                FancyLogo()
+                    .frame(width: 200, height: 200)
+                Spacer()
+                VStack(spacing: 16) {
+                    Text("Join a Zircle")
+                        .font(.system(size: 20, weight: .bold, design: .default))
+                        .shadow(color:Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.2), radius: 1, x: 0, y: 2)
+                        .foregroundColor(Color.buttonBlue)
+                        .modifier(ZcashButtonBackground(buttonShape: .roundedCorners(fillStyle: .solid(color: Color.background))))
+                        
+                        .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.3), radius: 15, x: 10, y: 15)
+                        .shadow(color: Color.white.opacity(0.5), radius: 25, x:-10, y: -10)
+                        .frame(height: 50)
+                    
+                    Button(action: {}) {
+                        Text("Create New")
                             .font(.system(size: 20, weight: .bold, design: .default))
                             .shadow(color:Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.2), radius: 1, x: 0, y: 2)
-                            .foregroundColor(Color.buttonBlue)
-                            .modifier(ZcashButtonBackground(buttonShape: .roundedCorners(fillStyle: .solid(color: Color.background))))
+                            .foregroundColor(Color.background)
+                            .modifier(ZcashButtonBackground(buttonShape: .roundedCorners(fillStyle: .solid(color: Color.buttonBlue))))
                             
-                            .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.3), radius: 15, x: 10, y: 15)
-                            .shadow(color: Color.white.opacity(0.5), radius: 25, x:-10, y: -10)
+                            .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.5), radius: 25, x: 10, y: 10)
                             .frame(height: 50)
-
-                        Button(action: {}) {
-                            Text("Create New")
-                                .font(.system(size: 20, weight: .bold, design: .default))
-                                .shadow(color:Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.2), radius: 1, x: 0, y: 2)
-                                .foregroundColor(Color.background)
-                                .modifier(ZcashButtonBackground(buttonShape: .roundedCorners(fillStyle: .solid(color: Color.buttonBlue))))
-                                
-                                .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.5), radius: 25, x: 10, y: 10)
-                                .frame(height: 50)
-                        }
-                    }.padding(.all, 0)
-                }.padding(30)
-                
-                
-            }.navigationBarTitle(Text("Welcome to Zircles"))
-        }
-        
+                    }
+                }.padding(.all, 0)
+            }.padding(30)
+            
+            
+        }.navigationBarTitle(Text("Welcome to Zircles"))
     }
 }
 
@@ -86,7 +83,7 @@ struct FancyLogo: View {
                 .foregroundColor(.buttonGray)
                 .font(
                     .custom("Zboto", size: 200)
-            ).padding()
+                ).padding()
                 .frame(alignment: .center)
                 .contentShape(Circle())
                 .offset(x: 0, y: 50)

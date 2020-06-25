@@ -80,7 +80,7 @@ struct CreateNewZircleDescription: View {
                         .frame(alignment: .leading)
                     Card(isOn: .constant(true),cornerRadius: 5,padding: 8) {
                         
-                        TextField("some title text", text: .constant("Hackathon Happy Hour"))
+                        TextField("some title text", text: .constant("3 ZEC"))
                             .foregroundColor(Color.textDarkGray)
                             .font(.system(size: 14, weight: .heavy, design: .default))
                         
