@@ -5,9 +5,14 @@ option swift_prefix = "";
 
 // Admin Memo protocol. Declares the creation of a Zircle in the blockchain 
 message CreateZircleMessage {
+    enum ContributionFrequency {
+        day = 0;
+        week = 1;
+        month = 2; 
+    }
     string  name = 1; // name of this zircle
     uint64  goal = 2; // goal of the zircle in Zatoshis
-    uint8   frequency = 3; // 1=day, 2=week, 3=month 
+    ContributionFrequency   frequency = 3; 
     uint64   end = 4; // timestamp timeReferenceSince1970 for end of this Zircle, 0 for end At Will
 }
 
@@ -16,8 +21,7 @@ message CreateZircleMessage {
 message ContributionJoin {
     string  from = 1; // nickname of the joiner / contributor
     string  autoid = 2; // autoid of the person contributing or joining
-    uint8   frequency = 3; // 1=day, 2=week, 3=month 
-    uint64  replyTo = 4; // zAddr of the joiner / contributor
+    string  replyTo = 4; // zAddr of the joiner / contributor
 }
 
 message PokeContributor {
