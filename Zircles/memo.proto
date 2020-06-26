@@ -1,0 +1,28 @@
+syntax = "proto3";
+package co.electriccoin.zircles.rpc;
+option swift_prefix = "";
+
+
+// Admin Memo protocol. Declares the creation of a Zircle in the blockchain 
+message CreateZircleMessage {
+    string  name = 1; // name of this zircle
+    uint64  goal = 2; // goal of the zircle in Zatoshis
+    uint8   frequency = 3; // 1=day, 2=week, 3=month 
+    uint64   end = 4; // timestamp timeReferenceSince1970 for end of this Zircle, 0 for end At Will
+}
+
+
+// Contribution and Join memo protocol
+message ContributionJoin {
+    string  from = 1; // nickname of the joiner / contributor
+    string  autoid = 2; // autoid of the person contributing or joining
+    uint8   frequency = 3; // 1=day, 2=week, 3=month 
+    uint64  replyTo = 4; // zAddr of the joiner / contributor
+}
+
+message PokeContributor {
+    string quote = 1; // message to the rogue contributor
+    string name = 2; // who's claiming the funds
+    string replyTo = 3; // address to pay the tribute
+
+}
