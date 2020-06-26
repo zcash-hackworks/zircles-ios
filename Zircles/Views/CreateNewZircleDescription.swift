@@ -55,7 +55,7 @@ struct CreateNewZircleDescription: View {
     
     var body: some View {
         ZStack {
-            Color.background
+            Color.background.edgesIgnoringSafeArea(.all)
             VStack(spacing: 30) {
                 VStack(alignment: .leading, spacing: 3) {
                     Text("Name of project")

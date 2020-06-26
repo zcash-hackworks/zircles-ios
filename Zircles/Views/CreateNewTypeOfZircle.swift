@@ -11,7 +11,7 @@ import SwiftUI
 struct CreateNewTypeOfZircle: View {
     var body: some View {
         ZStack {
-            Color.background
+            Color.background.edgesIgnoringSafeArea(.all)
             VStack(spacing: 32 ) {
                 Spacer()
                 Text("Savings Circle")
@@ -33,7 +33,9 @@ struct CreateNewTypeOfZircle: View {
                     .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.5), radius: 25, x: 10, y: 10)
                     .frame(height: 50)
                 
-                
+                NavigationLink(
+                    destination: CreateNewZircleDescription())
+                    {
                 Text("Group Budget Goal")
                     .font(.system(size: 20, weight: .bold, design: .default))
                     .shadow(color:Color(.sRGBLinear, red: 0.2, green: 0.2, blue: 0.2, opacity: 0.5), radius: 1, x: 0, y: 2)
@@ -42,6 +44,7 @@ struct CreateNewTypeOfZircle: View {
                     
                     .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.5), radius: 25, x: 10, y: 10)
                     .frame(height: 50)
+                }
                 Card(isOn: .constant(false),cornerRadius: 10, padding: 16) {
                     ZircleProgress(progress: 0.7, stroke: .init(lineWidth: 5, lineCap: .round))
                         .glow(vibe: .heavy, soul: .split(left: Color.gradientPink, right: Color.gradientOrange))
@@ -59,7 +62,7 @@ struct CreateNewTypeOfZircle: View {
             }
             .padding(.horizontal, 30)
             .padding(.bottom, 30)
-        }
+        }.navigationBarTitle(Text("What Type of Savings Project?"))
     }
 }
 

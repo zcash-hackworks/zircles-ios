@@ -18,22 +18,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-
+        _ZirclesNavigationBarLookTweaks()
         // Create the SwiftUI view that provides the window contents.
         let isInitialized = ZirclesEnvironment.isInitialized()
         let contentView = FirstScreen() {
             if isInitialized {
-                SplashScreen()
+                HomeScreen()
+//                AllZirclesView(
+//                    zircles: [
+//                        ZircleSummary(progress: 0.5, name: "Hackathon Drinks", paymentDue: false),
+//                        ZircleSummary(progress: 0.02, name: "Long-term Circle", paymentDue: true)
+//
+//                    ]
+//                )
             } else {
                 WelcomeView()
             }
         }
-
+        if isInitialized {
+            try? ZirclesEnvironment.shared.initialize()
+            ZirclesEnvironment.shared.synchronizer.start()
+        }
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
+            
             window.makeKeyAndVisible()
         }
     }
@@ -67,5 +78,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
+}
+
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
+func _ZirclesNavigationBarLookTweaks() {
+////    let appearance = UINavigationBarAppearance()
+////    appearance.configureWithTransparentBackground()
+////    appearance.largeTitleTextAttributes = [
+////        .font : UIFont.systemFont(ofSize: 20),
+////        NSAttributedString.Key.foregroundColor : UIColor.white
+////    ]
+////
+////    appearance.titleTextAttributes = [
+////        .font : UIFont.systemFont(ofSize: 20),
+////        NSAttributedString.Key.foregroundColor : UIColor.white
+////    ]
+////
+//    UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//    UINavigationBar.appearance().standardAppearance = appearance
+//
+    
+    let clearView = UIView()
+    clearView.backgroundColor = UIColor.clear
+    UITableViewCell.appearance().selectedBackgroundView = clearView
+    UITableView.appearance().backgroundColor = UIColor.clear
 }
 

@@ -8,15 +8,20 @@
 
 import SwiftUI
 import MnemonicSwift
+import ZcashLightClientKit
 struct WelcomeView: View {
     @State var username: String = ""
     @State var seedPhrase: String = ""
+    @State var birthdayHeight: String = ""
     @State var isWelcome = false
+    @State var showError = false
+    @State var error: Error? = nil
+    
     var body: some View {
         ZStack {
             Color.background.edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 16) {
-                Spacer()
+                
                 Text("It looks like you are a new user, let's get to know you! What is your name?")
                     .fontWeight(.heavy)
                     .foregroundColor(Color.textDarkGray)
@@ -52,6 +57,18 @@ struct WelcomeView: View {
                         .font(.system(size: 14, weight: .heavy, design: .default))
                     }
                 }.padding(.all, 0)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Birthday height")
+                        .foregroundColor(.textLightGray)
+                        .fontWeight(.heavy)
+                        .font(.footnote)
+                        .frame(alignment: .leading)
+                    Card(isOn: .constant(true),cornerRadius: 5,padding: 8) {
+                    TextField("Birthday height", text: $birthdayHeight)
+                        .foregroundColor(Color.textDarkGray)
+                        .font(.system(size: 14, weight: .heavy, design: .default))
+                    }
+                }.padding(.all, 0)
                 Spacer()
                 Text("The Zircles app will only send ZEC to other Zircles app.")
                     .foregroundColor(.textLightGray)
@@ -60,8 +77,11 @@ struct WelcomeView: View {
                     .frame(alignment: .center)
                 Spacer()
                 Button(action: {
-                    
-                    self.isWelcome = true
+                    do {
+                        try initialize()
+                    } catch {
+                        ZirclesEnvironment.shared.errorPublisher.send(error)
+                    }
                 }) {
                     Text("Add Wallet to Zircles")
                         .font(.system(size: 20, weight: .bold, design: .default))
@@ -72,8 +92,9 @@ struct WelcomeView: View {
                         .shadow(color: Color(red: 0.2, green: 0.2, blue: 0.2).opacity(0.5), radius: 25, x: 10, y: 10)
                         .frame(height: 50)
                 }.disabled(!validInput())
+                .opacity(validInput() ? 1.0 : 0.6)
                 NavigationLink(
-                    destination: SplashScreen(),
+                    destination: HomeScreen(),
                     isActive: $isWelcome,
                     label: {
                         EmptyView()
@@ -81,14 +102,34 @@ struct WelcomeView: View {
                 
             }
             .padding([.horizontal,.bottom], 30)
-            
-            
-        }.navigationBarTitle(Text("Welcome"))
+     
+        }
+        .navigationBarTitle(Text("Welcome"))
+        .alert(isPresented: $showError) {
+            Alert(
+                title: Text("Error"),
+                message: Text( error == nil ? "It would be embarrasing if it wasn't a hackathon" : "Error: \( ZirclesEnvironment.WalletError.mapError(error: error!).localizedDescription)"),
+                dismissButton: .default(Text("dismiss"), action: {
+                    self.error = nil
+                }))
+        }.onReceive(ZirclesEnvironment.shared.errorPublisher) { e in
+            self.error = e
+            self.showError = true
+            if let _ = e as? SeedManager.SeedManagerError {
+                ZirclesEnvironment.shared.nuke()
+            }
+        }
     }
     
-    
+    func initialize() throws {
+        ZircleDataStorage.default.saveUsername(self.username)
+        try self.importSeed()
+        try self.importBirthday()
+        try ZirclesEnvironment.shared.initialize()
+        self.isWelcome = true
+    }
     func validInput() -> Bool {
-        validSeedPhrase() && validName()
+        validSeedPhrase() && validName() && validBirthday()
     }
     
     func validSeedPhrase() -> Bool {
@@ -98,10 +139,35 @@ struct WelcomeView: View {
     func validName() -> Bool {
         !username.isEmpty
     }
+    
+    func validBirthday() -> Bool {
+        birthdayHeight.isEmpty || Int64(birthdayHeight) != nil
+    }
+    
+    func validateSeed(_ seed: String) -> Bool {
+        MnemonicSeedProvider.default.isValid(mnemonic: seed)
+    }
+    
+    func importBirthday() throws {
+        let b = BlockHeight(self.birthdayHeight.trimmingCharacters(in: .whitespacesAndNewlines)) ?? ZcashSDK.SAPLING_ACTIVATION_HEIGHT
+        try SeedManager.default.importBirthday(b)
+    }
+    
+    func importSeed() throws {
+        let trimmedSeedPhrase = seedPhrase.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedSeedPhrase.isEmpty, let seedBytes =
+            MnemonicSeedProvider.default.toSeed(mnemonic: trimmedSeedPhrase) else { throw ZirclesEnvironment.WalletError.createFailed
+        }
+        
+        try SeedManager.default.importSeed(seedBytes)
+        try SeedManager.default.importPhrase(bip39: trimmedSeedPhrase)
+    }
 }
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
+        NavigationView {
         WelcomeView()
+        }
     }
 }

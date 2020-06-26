@@ -18,7 +18,12 @@ enum WalletState {
 }
 
 protocol AppEnvironment {
-    
+    func createNewWallet() throws
+    func nuke(abortApplication: Bool)
+    func getMainAddress() -> String
+    func getUsername() -> String
+    func getMainSeedPhrase() -> String
+    func getLatestHeight() -> Int64
 }
 
 final class ZirclesEnvironment: ObservableObject {
@@ -33,7 +38,7 @@ final class ZirclesEnvironment: ObservableObject {
     static var shared: ZirclesEnvironment = try! ZirclesEnvironment() // app can't live without this existing.
     
     @Published var state: WalletState
-    
+    var errorPublisher = PassthroughSubject<Error,Never>()
     let endpoint = LightWalletEndpoint(address: ZcashSDK.isMainnet ? "lightwalletd.z.cash" : "lightwalletd.testnet.z.cash", port: 9067, secure: true)
     var dataDbURL: URL
     var cacheDbURL: URL
@@ -123,6 +128,27 @@ final class ZirclesEnvironment: ObservableObject {
         self.synchronizer.start()
     }
     
+    static var appBuild: String? {
+        Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    }
+    
+    static var appVersion: String? {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    
+    func isValidAddress(_ address: String) -> Bool {
+        self.initializer.isValidShieldedAddress(address) || self.initializer.isValidTransparentAddress(address)
+    }
+    func sufficientFundsToSend(amount: Double) -> Bool {
+        return sufficientFunds(availableBalance: self.initializer.getVerifiedBalance(), zatoshiToSend: amount.toZatoshi())
+    }
+    private func sufficientFunds(availableBalance: Int64, zatoshiToSend: Int64) -> Bool {
+        availableBalance - zatoshiToSend  - Int64(ZcashSDK.MINERS_FEE_ZATOSHI) >= 0
+    }
+    static var minerFee: Double {
+        Int64(ZcashSDK.MINERS_FEE_ZATOSHI).asHumanReadableZecBalance()
+    }
+    
     /**
      only for internal use
      */
@@ -152,6 +178,16 @@ final class ZirclesEnvironment: ObservableObject {
         }
     }
     
+    
+    deinit {
+        cancellables.forEach {
+            c in
+            c.cancel()
+        }
+    }
+    
+}
+extension Error {
     static func mapError(error: Error) -> ZirclesEnvironment.WalletError {
         
         if let rustError = error as? RustWeldingError {
@@ -167,55 +203,50 @@ final class ZirclesEnvironment: ObservableObject {
             case .malformedStringInput:
                 return ZirclesEnvironment.WalletError.genericError(message: "Malformed address or key detected")
             default:
-                return WalletError.genericError(message: "\(rustError)")
+                return ZirclesEnvironment.WalletError.genericError(message: "\(rustError)")
             }
         } else if let synchronizerError = error as? SynchronizerError {
             switch synchronizerError {
             case .generalError(let message):
                 return ZirclesEnvironment.WalletError.genericError(message: message)
             case .initFailed(let message):
-                return WalletError.initializationFailed(message: "Synchronizer failed to initialize: \(message)")
+                return ZirclesEnvironment.WalletError.initializationFailed(message: "Synchronizer failed to initialize: \(message)")
             case .syncFailed:
-                return WalletError.genericError(message: "Synchronizing failed")
+                return ZirclesEnvironment.WalletError.genericError(message: "Synchronizing failed")
             case .connectionFailed(let message):
-                return WalletError.connectionFailed(message: message)
+                return ZirclesEnvironment.WalletError.connectionFailed(message: message)
             case .maxRetryAttemptsReached(attempts: let attempts):
-                return WalletError.maxRetriesReached(attempts: attempts)
+                return ZirclesEnvironment.WalletError.maxRetriesReached(attempts: attempts)
             case .connectionError(_, let message):
-              return WalletError.connectionFailed(message: message)
+                return ZirclesEnvironment.WalletError.connectionFailed(message: message)
             }
         }
         
-        return ZirclesEnvironment.WalletError.genericError(message: Self.genericErrorMessage)
+        return ZirclesEnvironment.WalletError.genericError(message: ZirclesEnvironment.genericErrorMessage)
     }
-    deinit {
-        cancellables.forEach {
-            c in
-            c.cancel()
+}
+
+extension ZirclesEnvironment: AppEnvironment {
+    func getMainAddress() -> String {
+        self.initializer.getAddress(index: 0) ?? "No address!!"
+    }
+    
+    func getUsername() -> String {
+        ZircleDataStorage.default.username
+    }
+    
+    func getMainSeedPhrase() -> String {
+        guard let phrase = try? SeedManager.default.exportPhrase() else {
+            return "no phrase"
         }
+        return phrase
     }
+    
+    func getLatestHeight() -> Int64 {
+        Int64(synchronizer.syncBlockHeight.value)
+    }
+    
     
 }
 
-extension ZirclesEnvironment {
-    static var appBuild: String? {
-        Bundle.main.infoDictionary?["CFBundleVersion"] as? String
-    }
-    
-    static var appVersion: String? {
-        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-    }
-    
-    func isValidAddress(_ address: String) -> Bool {
-        self.initializer.isValidShieldedAddress(address) || self.initializer.isValidTransparentAddress(address)
-    }
-    func sufficientFundsToSend(amount: Double) -> Bool {
-        return sufficientFunds(availableBalance: self.initializer.getVerifiedBalance(), zatoshiToSend: amount.toZatoshi())
-    }
-    private func sufficientFunds(availableBalance: Int64, zatoshiToSend: Int64) -> Bool {
-        availableBalance - zatoshiToSend  - Int64(ZcashSDK.MINERS_FEE_ZATOSHI) >= 0
-    }
-    static var minerFee: Double {
-        Int64(ZcashSDK.MINERS_FEE_ZATOSHI).asHumanReadableZecBalance()
-    }
-}
+
