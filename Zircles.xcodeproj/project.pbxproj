@@ -52,6 +52,8 @@
 		0DB5330F24A623AF0090D722 /* sapling-spend.params in Resources */ = {isa = PBXBuildFile; fileRef = 0DB5330D24A623AF0090D722 /* sapling-spend.params */; };
 		0DB5331024A623AF0090D722 /* sapling-output.params in Resources */ = {isa = PBXBuildFile; fileRef = 0DB5330E24A623AF0090D722 /* sapling-output.params */; };
 		0DB5331224A6413D0090D722 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5331124A6413D0090D722 /* LazyView.swift */; };
+		0DB5331424A6B8B60090D722 /* memo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5331324A6B8B60090D722 /* memo.pb.swift */; };
+		0DC1B47B24AAA44B00AEF3D0 /* ZircleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1B47A24AAA44B00AEF3D0 /* ZircleService.swift */; };
 		0DD7278924A5532300C36D27 /* AllZirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD7278824A5532300C36D27 /* AllZirclesView.swift */; };
 		0DD7278B24A564AF00C36D27 /* ZircleListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD7278A24A564AF00C36D27 /* ZircleListCard.swift */; };
 		0DEE59A824A24B7300447C15 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE59A724A24B7300447C15 /* WelcomeView.swift */; };
@@ -128,6 +130,8 @@
 		0DB5330D24A623AF0090D722 /* sapling-spend.params */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sapling-spend.params"; sourceTree = "<group>"; };
 		0DB5330E24A623AF0090D722 /* sapling-output.params */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sapling-output.params"; sourceTree = "<group>"; };
 		0DB5331124A6413D0090D722 /* LazyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		0DB5331324A6B8B60090D722 /* memo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memo.pb.swift; sourceTree = "<group>"; };
+		0DC1B47A24AAA44B00AEF3D0 /* ZircleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZircleService.swift; sourceTree = "<group>"; };
 		0DD7278824A5532300C36D27 /* AllZirclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllZirclesView.swift; sourceTree = "<group>"; };
 		0DD7278A24A564AF00C36D27 /* ZircleListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZircleListCard.swift; sourceTree = "<group>"; };
 		0DEE59A724A24B7300447C15 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 		0D1366AA24991A6000F0EB54 /* Zircles */ = {
 			isa = PBXGroup;
 			children = (
+				0DC1B47924AAA43100AEF3D0 /* ZircleService */,
+				0DB5331324A6B8B60090D722 /* memo.pb.swift */,
 				0DB5330E24A623AF0090D722 /* sapling-output.params */,
 				0DB5330D24A623AF0090D722 /* sapling-spend.params */,
 				0D64CEBE24A3D3A30080AA4F /* CombineSynchronizer.swift */,
@@ -321,6 +327,14 @@
 				0D11D3DC249D81B900223146 /* Pie.swift */,
 			);
 			path = Neumorphic;
+			sourceTree = "<group>";
+		};
+		0DC1B47924AAA43100AEF3D0 /* ZircleService */ = {
+			isa = PBXGroup;
+			children = (
+				0DC1B47A24AAA44B00AEF3D0 /* ZircleService.swift */,
+			);
+			path = ZircleService;
 			sourceTree = "<group>";
 		};
 		E7393F4D108BAE27C875D7F0 /* Pods */ = {
@@ -578,6 +592,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC1B47B24AAA44B00AEF3D0 /* ZircleService.swift in Sources */,
 				0D6A22C9249AB3CA00B4E946 /* ZcashButton.swift in Sources */,
 				0D64CEB924A3CDA90080AA4F /* URL+Zcash.swift in Sources */,
 				0D64CEC524A41AF30080AA4F /* AppDetails.swift in Sources */,
@@ -611,6 +626,7 @@
 				0D64CEBD24A3CDA90080AA4F /* SimpleLogger.swift in Sources */,
 				0D64CEBC24A3CDA90080AA4F /* BalanceUtils.swift in Sources */,
 				0D5142C824A16F9600F9AE2E /* CreateNewTypeOfZircle.swift in Sources */,
+				0DB5331424A6B8B60090D722 /* memo.pb.swift in Sources */,
 				0D64CEBB24A3CDA90080AA4F /* CameraAccessHelper.swift in Sources */,
 				0D64CEB424A3CDA90080AA4F /* SeedManagement.swift in Sources */,
 				0D64CEC324A4137D0080AA4F /* ZircleData.swift in Sources */,

@@ -158,4 +158,20 @@ class CombineSynchronizer {
         }
         
     }
+    
+    func latestHeight() -> Future<BlockHeight,Error> {
+        
+        Future<BlockHeight,Error>() { promise in
+            
+            DispatchQueue.global().async { [weak self] in
+                guard let self = self else { return }
+                do {
+                    promise(.success(try self.initializer.lightWalletService.latestBlockHeight()))
+                } catch {
+                    promise(.failure(error))
+                }
+            }
+        }
+    }
 }
+

@@ -8,51 +8,46 @@
 
 import SwiftUI
 
+extension ZircleFrequency {
+    var textDescription: String {
+        switch self {
+        case .daily:
+            return "Daily"
+        case .weekly:
+            return "Weekly"
+        case .monthly:
+            return "Monthly"
+        }
+    }
+}
+
+
+extension ZircleEndDate {
+    var optionIndex: Int {
+        switch self {
+        case .onDate(_):
+           return 0
+        case .atWill:
+            return 1
+        }
+    }
+    
+    var textDescription: String {
+        switch self {
+        case .atWill:
+            return "At Will"
+        case .onDate:
+            return "On Date"
+        }
+    }
+}
 struct CreateNewZircleDescription: View {
     
-    enum ZircleFrequency: Int {
-        case daily = 0
-        case weekly
-        case monthly
-        
-        var textDescription: String {
-            switch self {
-            case .daily:
-                return "Daily"
-            case .weekly:
-                return "Weekly"
-            case .monthly:
-                return "Monthly"
-            }
-        }
-        
-    }
-    enum ZircleEndDate {
-        case onDate(date: Date)
-        case atWill
-        
-        var optionIndex: Int {
-            switch self {
-            case .onDate(_):
-               return 0
-            case .atWill:
-                return 1
-            }
-        }
-        
-        var textDescription: String {
-            switch self {
-            case .atWill:
-                return "At Will"
-            case .onDate:
-                return "On Date"
-            }
-        }
-    }
     @State var contributionFrequency: Int = ZircleFrequency.weekly.rawValue
     @State var endDate: Int = ZircleEndDate.atWill.optionIndex
     @State var zircleEndDate = Date()
-    
+    @State var zircleName = ""
+    @State var contributionInZec: String = ""
     var body: some View {
         ZStack {
             Color.background.edgesIgnoringSafeArea(.all)
@@ -65,7 +60,7 @@ struct CreateNewZircleDescription: View {
                         .frame(alignment: .leading)
                     Card(isOn: .constant(true),cornerRadius: 5,padding: 8) {
                         
-                        TextField("some title text", text: .constant("Hackathon Happy Hour"))
+                        TextField("some title text", text: $zircleName)
                             .foregroundColor(Color.textDarkGray)
                             .font(.system(size: 14, weight: .heavy, design: .default))
                         
@@ -80,9 +75,10 @@ struct CreateNewZircleDescription: View {
                         .frame(alignment: .leading)
                     Card(isOn: .constant(true),cornerRadius: 5,padding: 8) {
                         
-                        TextField("some title text", text: .constant("3 ZEC"))
+                        TextField("ZEC to save", text: $contributionInZec)
                             .foregroundColor(Color.textDarkGray)
                             .font(.system(size: 14, weight: .heavy, design: .default))
+                            .keyboardType(.decimalPad)
                         
                     }
                 }.padding(.all, 0)
@@ -111,7 +107,9 @@ struct CreateNewZircleDescription: View {
                         ZircleEndDate.atWill.textDescription
                     )
                 }.padding(.all, 0)
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    
+                }, label: {
                     Text("Create New Zircle")
                         .font(.system(size: 20, weight: .bold, design: .default))
                         .shadow(color:Color(.sRGBLinear, red: 0.2, green: 0.2, blue: 0.2, opacity: 0.5), radius: 1, x: 0, y: 2)

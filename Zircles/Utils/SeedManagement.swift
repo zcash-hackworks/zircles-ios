@@ -101,15 +101,56 @@ final class SeedManager {
     There's no fate but what we make for ourselves - Sarah Connor
     */
     func nukeWallet() {
-        nukeKeys()
-        nukeSeed()
-        nukePhrase()
-        nukeBirthday()
+        for key in keychain.allKeys {
+            keychain.delete(key)
+        }
     }
 }
 
 extension SeedManager: SeedProvider {
     func seed() -> [UInt8] {
         (try? exportSeed()) ?? []
+    }
+}
+
+extension SeedManager {
+    func saveKeys(_ key: String, phrase: String,height: BlockHeight, spendingKey: String) throws {
+        guard keychain.get(heightKey(key)) == nil else {
+            throw SeedManagerError.alreadyImported
+        }
+        keychain.set(String(height), forKey: heightKey(key))
+        
+        guard keychain.get(phraseKey(key)) == nil else {
+            throw SeedManagerError.alreadyImported
+        }
+        keychain.set(String(phrase), forKey: phraseKey(key))
+        
+        guard keychain.get(spendingKeyKey(key)) == nil else {
+            throw SeedManagerError.alreadyImported
+        }
+        keychain.set(String(phrase), forKey: spendingKeyKey(key))
+    }
+    
+    func getZircleKeys(_ key: String) throws -> (height: BlockHeight, phrase: String, spendingKey: String)? {
+        guard   let heightString = keychain.get(heightKey(key)),
+                let height = BlockHeight(heightString),
+                let phrase = keychain.get(phraseKey(key)),
+                let spendingKey = keychain.get(spendingKeyKey(key)) else {
+            return nil
+        }
+        
+        return (height: height, phrase: phrase, spendingKey: spendingKey)
+    }
+    
+    func heightKey(_ key: String) -> String {
+        key+"+height"
+    }
+    
+    func phraseKey(_ key: String) -> String {
+        key+"+phrase"
+    }
+    
+    func spendingKeyKey(_ key: String) -> String {
+        key+"+spending"
     }
 }
