@@ -13,7 +13,7 @@ enum ZircleServiceError: Error {
     case generalError(message: String)
 }
 protocol ZircleService {
-    func createNewZircle(name: String, goal zatoshi: Int64, frequency: ZircleFrequency, endDate: ZircleEndDate) throws -> Future<ZircleEntity, Error>
+    func createNewZircle(name: String, goal zatoshi: Int64, frequency: ZircleFrequency, endDate: ZircleEndDate, spendingKey: String) throws -> Future<ZircleEntity, Error>
     func closeZircle(name: String) throws
     func contribute(zatoshi: Int64, zircle: ZircleEntity) throws
     func allOpenZircles() throws -> [ZircleEntity]?
@@ -70,6 +70,7 @@ struct ConcreteZircle: ZircleEntity {
     
 }
 import MnemonicSwift
+
 extension CombineSynchronizer: ZircleService {
     func closeZircle(name: String) throws {
         
@@ -95,7 +96,7 @@ extension CombineSynchronizer: ZircleService {
         }
     }
     
-    func createNewZircle(name: String, goal zatoshi: Int64, frequency: ZircleFrequency, endDate: ZircleEndDate) -> Future<ZircleEntity, Error> {
+    func createNewZircle(name: String, goal zatoshi: Int64, frequency: ZircleFrequency, endDate: ZircleEndDate, spendingKey: String) -> Future<ZircleEntity, Error> {
         
         Future<ZircleEntity, Error>() { promise in
             var storage = [AnyCancellable]()
@@ -105,7 +106,7 @@ extension CombineSynchronizer: ZircleService {
                 
                 // Get latest height from chain and generate a mnemonic seed for this zircle
                 Publishers.Zip(self.latestHeight(),
-                               Mnemonic.generatePublisher(strength: 24)
+                               Mnemonic.generatePublisher(strength: 256)
                 ).sink(receiveCompletion: { error in
                     switch error {
                     case .failure(let e):
@@ -127,6 +128,7 @@ extension CombineSynchronizer: ZircleService {
                               let extendedSpendingKey = extendedSpendingKeys.first,
                               let extendedViewingKey = try derivationHelper.deriveExtendedFullViewingKey(extendedSpendingKey) else {
                             promise(.failure(ZircleServiceError.generalError(message: "Key derivation error")))
+                            return
                         }
                         
                      
@@ -162,10 +164,7 @@ extension CombineSynchronizer: ZircleService {
                         
                       
                         // get supporting wallet spending keys to create zircle
-                        guard let mainSpendingKey = SeedManager.default.getKeys()?.first else {
-                            promise(.failure(ZircleServiceError.generalError(message: "error getting spending keys")))
-                            return
-                        }
+                      
                         
                         guard let freq = CreateZircleMessage.ContributionFrequency(rawValue: zircle.frequency) else {
                             promise(.failure(ZircleServiceError.generalError(message: "could not create frequency with value \(zircle.frequency)")))
@@ -194,7 +193,7 @@ extension CombineSynchronizer: ZircleService {
                                                         height: height,
                                                         spendingKey: extendedSpendingKey)
                         // fund zircle
-                        self.send(with: mainSpendingKey,
+                        self.send(with: spendingKey,
                                   zatoshi: 1000,
                                   to: zAddr,
                                   memo: memo,
@@ -226,11 +225,7 @@ extension CombineSynchronizer: ZircleService {
     
     func openInvite(_ url: URL) throws {
         
-    }
-    
-    
-    
-    
+    } 
 }
 
 extension Mnemonic {
@@ -239,7 +234,7 @@ extension Mnemonic {
         Future<String,Error>() { promise in
             
             DispatchQueue.global().async {
-                guard let mnemonic = Mnemonic.generateMnemonic(strength: 24) else {
+                guard let mnemonic = Mnemonic.generateMnemonic(strength: strength) else {
                     promise(.failure(ZircleServiceError.generalError(message: "Error generating mnemonic")))
                     return
                 }

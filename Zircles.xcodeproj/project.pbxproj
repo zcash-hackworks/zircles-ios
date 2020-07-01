@@ -54,6 +54,20 @@
 		0DB5331224A6413D0090D722 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5331124A6413D0090D722 /* LazyView.swift */; };
 		0DB5331424A6B8B60090D722 /* memo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5331324A6B8B60090D722 /* memo.pb.swift */; };
 		0DC1B47B24AAA44B00AEF3D0 /* ZircleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1B47A24AAA44B00AEF3D0 /* ZircleService.swift */; };
+		0DC4B44A24ACB62400B3CBA2 /* darkside.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B43D24ACB62400B3CBA2 /* darkside.grpc.swift */; };
+		0DC4B44B24ACB62400B3CBA2 /* darkside.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B43E24ACB62400B3CBA2 /* darkside.pb.swift */; };
+		0DC4B44D24ACB62400B3CBA2 /* MockTransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B44124ACB62400B3CBA2 /* MockTransactionRepository.swift */; };
+		0DC4B44E24ACB62400B3CBA2 /* SampleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B44224ACB62400B3CBA2 /* SampleLogger.swift */; };
+		0DC4B44F24ACB62400B3CBA2 /* FakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B44324ACB62400B3CBA2 /* FakeService.swift */; };
+		0DC4B45024ACB62400B3CBA2 /* FakeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B44424ACB62400B3CBA2 /* FakeStorage.swift */; };
+		0DC4B45124ACB62400B3CBA2 /* TestDbBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B44524ACB62400B3CBA2 /* TestDbBuilder.swift */; };
+		0DC4B45224ACB62400B3CBA2 /* FakeChainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B44624ACB62400B3CBA2 /* FakeChainBuilder.swift */; };
+		0DC4B45324ACB62400B3CBA2 /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B44724ACB62400B3CBA2 /* Stubs.swift */; };
+		0DC4B45424ACB62400B3CBA2 /* DarkSideWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B44824ACB62400B3CBA2 /* DarkSideWalletService.swift */; };
+		0DC4B45524ACB62400B3CBA2 /* Tests+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B44924ACB62400B3CBA2 /* Tests+Utils.swift */; };
+		0DC4B45724ACF8EE00B3CBA2 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B45624ACF8EE00B3CBA2 /* TestCoordinator.swift */; };
+		0DC4B45824AD281100B3CBA2 /* sapling-output.params in Resources */ = {isa = PBXBuildFile; fileRef = 0DB5330E24A623AF0090D722 /* sapling-output.params */; };
+		0DC4B45924AD281400B3CBA2 /* sapling-spend.params in Resources */ = {isa = PBXBuildFile; fileRef = 0DB5330D24A623AF0090D722 /* sapling-spend.params */; };
 		0DD7278924A5532300C36D27 /* AllZirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD7278824A5532300C36D27 /* AllZirclesView.swift */; };
 		0DD7278B24A564AF00C36D27 /* ZircleListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD7278A24A564AF00C36D27 /* ZircleListCard.swift */; };
 		0DEE59A824A24B7300447C15 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE59A724A24B7300447C15 /* WelcomeView.swift */; };
@@ -132,6 +146,18 @@
 		0DB5331124A6413D0090D722 /* LazyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		0DB5331324A6B8B60090D722 /* memo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memo.pb.swift; sourceTree = "<group>"; };
 		0DC1B47A24AAA44B00AEF3D0 /* ZircleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZircleService.swift; sourceTree = "<group>"; };
+		0DC4B43D24ACB62400B3CBA2 /* darkside.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = darkside.grpc.swift; sourceTree = "<group>"; };
+		0DC4B43E24ACB62400B3CBA2 /* darkside.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = darkside.pb.swift; sourceTree = "<group>"; };
+		0DC4B44124ACB62400B3CBA2 /* MockTransactionRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTransactionRepository.swift; sourceTree = "<group>"; };
+		0DC4B44224ACB62400B3CBA2 /* SampleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleLogger.swift; sourceTree = "<group>"; };
+		0DC4B44324ACB62400B3CBA2 /* FakeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeService.swift; sourceTree = "<group>"; };
+		0DC4B44424ACB62400B3CBA2 /* FakeStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeStorage.swift; sourceTree = "<group>"; };
+		0DC4B44524ACB62400B3CBA2 /* TestDbBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDbBuilder.swift; sourceTree = "<group>"; };
+		0DC4B44624ACB62400B3CBA2 /* FakeChainBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeChainBuilder.swift; sourceTree = "<group>"; };
+		0DC4B44724ACB62400B3CBA2 /* Stubs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
+		0DC4B44824ACB62400B3CBA2 /* DarkSideWalletService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSideWalletService.swift; sourceTree = "<group>"; };
+		0DC4B44924ACB62400B3CBA2 /* Tests+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tests+Utils.swift"; sourceTree = "<group>"; };
+		0DC4B45624ACF8EE00B3CBA2 /* TestCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCoordinator.swift; sourceTree = "<group>"; };
 		0DD7278824A5532300C36D27 /* AllZirclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllZirclesView.swift; sourceTree = "<group>"; };
 		0DD7278A24A564AF00C36D27 /* ZircleListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZircleListCard.swift; sourceTree = "<group>"; };
 		0DEE59A724A24B7300447C15 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -266,6 +292,8 @@
 		0D1366C124991A6200F0EB54 /* ZirclesTests */ = {
 			isa = PBXGroup;
 			children = (
+				0DC4B43C24ACB62400B3CBA2 /* proto */,
+				0DC4B44024ACB62400B3CBA2 /* utils */,
 				0D1366C224991A6200F0EB54 /* ZirclesTests.swift */,
 				0D1366C424991A6200F0EB54 /* Info.plist */,
 			);
@@ -335,6 +363,32 @@
 				0DC1B47A24AAA44B00AEF3D0 /* ZircleService.swift */,
 			);
 			path = ZircleService;
+			sourceTree = "<group>";
+		};
+		0DC4B43C24ACB62400B3CBA2 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				0DC4B43D24ACB62400B3CBA2 /* darkside.grpc.swift */,
+				0DC4B43E24ACB62400B3CBA2 /* darkside.pb.swift */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		0DC4B44024ACB62400B3CBA2 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				0DC4B45624ACF8EE00B3CBA2 /* TestCoordinator.swift */,
+				0DC4B44124ACB62400B3CBA2 /* MockTransactionRepository.swift */,
+				0DC4B44224ACB62400B3CBA2 /* SampleLogger.swift */,
+				0DC4B44324ACB62400B3CBA2 /* FakeService.swift */,
+				0DC4B44424ACB62400B3CBA2 /* FakeStorage.swift */,
+				0DC4B44524ACB62400B3CBA2 /* TestDbBuilder.swift */,
+				0DC4B44624ACB62400B3CBA2 /* FakeChainBuilder.swift */,
+				0DC4B44724ACB62400B3CBA2 /* Stubs.swift */,
+				0DC4B44824ACB62400B3CBA2 /* DarkSideWalletService.swift */,
+				0DC4B44924ACB62400B3CBA2 /* Tests+Utils.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		E7393F4D108BAE27C875D7F0 /* Pods */ = {
@@ -472,6 +526,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC4B45824AD281100B3CBA2 /* sapling-output.params in Resources */,
+				0DC4B45924AD281400B3CBA2 /* sapling-spend.params in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +697,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC4B45024ACB62400B3CBA2 /* FakeStorage.swift in Sources */,
 				0D1366C324991A6200F0EB54 /* ZirclesTests.swift in Sources */,
+				0DC4B44F24ACB62400B3CBA2 /* FakeService.swift in Sources */,
+				0DC4B44A24ACB62400B3CBA2 /* darkside.grpc.swift in Sources */,
+				0DC4B44D24ACB62400B3CBA2 /* MockTransactionRepository.swift in Sources */,
+				0DC4B45524ACB62400B3CBA2 /* Tests+Utils.swift in Sources */,
+				0DC4B44B24ACB62400B3CBA2 /* darkside.pb.swift in Sources */,
+				0DC4B45324ACB62400B3CBA2 /* Stubs.swift in Sources */,
+				0DC4B45124ACB62400B3CBA2 /* TestDbBuilder.swift in Sources */,
+				0DC4B45224ACB62400B3CBA2 /* FakeChainBuilder.swift in Sources */,
+				0DC4B44E24ACB62400B3CBA2 /* SampleLogger.swift in Sources */,
+				0DC4B45724ACF8EE00B3CBA2 /* TestCoordinator.swift in Sources */,
+				0DC4B45424ACB62400B3CBA2 /* DarkSideWalletService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

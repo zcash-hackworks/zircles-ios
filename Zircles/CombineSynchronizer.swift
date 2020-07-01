@@ -14,7 +14,7 @@ class CombineSynchronizer {
     var initializer: Initializer {
         synchronizer.initializer
     }
-    private var synchronizer: SDKSynchronizer
+    var synchronizer: SDKSynchronizer
     
     var status: CurrentValueSubject<Status, Never>
     var progress: CurrentValueSubject<Float,Never>
