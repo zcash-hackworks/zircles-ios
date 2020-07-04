@@ -72,6 +72,7 @@ struct ConcreteZircle: ZircleEntity {
 import MnemonicSwift
 
 extension CombineSynchronizer: ZircleService {
+    
     func closeZircle(name: String) throws {
         
     }

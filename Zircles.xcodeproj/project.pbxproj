@@ -53,6 +53,10 @@
 		0DB5331024A623AF0090D722 /* sapling-output.params in Resources */ = {isa = PBXBuildFile; fileRef = 0DB5330E24A623AF0090D722 /* sapling-output.params */; };
 		0DB5331224A6413D0090D722 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5331124A6413D0090D722 /* LazyView.swift */; };
 		0DB5331424A6B8B60090D722 /* memo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB5331324A6B8B60090D722 /* memo.pb.swift */; };
+		0DB9EF5624AFA94300FE89E6 /* LiberatedInviteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9EF5524AFA94300FE89E6 /* LiberatedInviteTests.swift */; };
+		0DB9EF5824AFAA6100FE89E6 /* InviteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9EF5724AFAA6100FE89E6 /* InviteHandler.swift */; };
+		0DB9EF5A24AFF03400FE89E6 /* InvitePeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9EF5924AFF03400FE89E6 /* InvitePeople.swift */; };
+		0DB9EF5C24B001A000FE89E6 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9EF5B24B001A000FE89E6 /* ShareView.swift */; };
 		0DC1B47B24AAA44B00AEF3D0 /* ZircleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC1B47A24AAA44B00AEF3D0 /* ZircleService.swift */; };
 		0DC4B44A24ACB62400B3CBA2 /* darkside.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B43D24ACB62400B3CBA2 /* darkside.grpc.swift */; };
 		0DC4B44B24ACB62400B3CBA2 /* darkside.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC4B43E24ACB62400B3CBA2 /* darkside.pb.swift */; };
@@ -145,6 +149,10 @@
 		0DB5330E24A623AF0090D722 /* sapling-output.params */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sapling-output.params"; sourceTree = "<group>"; };
 		0DB5331124A6413D0090D722 /* LazyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		0DB5331324A6B8B60090D722 /* memo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memo.pb.swift; sourceTree = "<group>"; };
+		0DB9EF5524AFA94300FE89E6 /* LiberatedInviteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LiberatedInviteTests.swift; path = ZirclesTests/LiberatedInviteTests.swift; sourceTree = SOURCE_ROOT; };
+		0DB9EF5724AFAA6100FE89E6 /* InviteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteHandler.swift; sourceTree = "<group>"; };
+		0DB9EF5924AFF03400FE89E6 /* InvitePeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePeople.swift; sourceTree = "<group>"; };
+		0DB9EF5B24B001A000FE89E6 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		0DC1B47A24AAA44B00AEF3D0 /* ZircleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZircleService.swift; sourceTree = "<group>"; };
 		0DC4B43D24ACB62400B3CBA2 /* darkside.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = darkside.grpc.swift; sourceTree = "<group>"; };
 		0DC4B43E24ACB62400B3CBA2 /* darkside.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = darkside.pb.swift; sourceTree = "<group>"; };
@@ -230,6 +238,7 @@
 				0D64CEC024A3F2580080AA4F /* FirstScreen.swift */,
 				0D64CEC224A4137D0080AA4F /* ZircleData.swift */,
 				0D3FB6FD24A4CD4E0034A52A /* MockEnvironment.swift */,
+				0DB9EF5B24B001A000FE89E6 /* ShareView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -292,6 +301,7 @@
 		0D1366C124991A6200F0EB54 /* ZirclesTests */ = {
 			isa = PBXGroup;
 			children = (
+				0DB9EF5524AFA94300FE89E6 /* LiberatedInviteTests.swift */,
 				0DC4B43C24ACB62400B3CBA2 /* proto */,
 				0DC4B44024ACB62400B3CBA2 /* utils */,
 				0D1366C224991A6200F0EB54 /* ZirclesTests.swift */,
@@ -319,6 +329,7 @@
 				0DEE59A924A2B90F00447C15 /* CreateNewZircleDescription.swift */,
 				0D64CEC424A41AF30080AA4F /* AppDetails.swift */,
 				0DD7278824A5532300C36D27 /* AllZirclesView.swift */,
+				0DB9EF5924AFF03400FE89E6 /* InvitePeople.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -361,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				0DC1B47A24AAA44B00AEF3D0 /* ZircleService.swift */,
+				0DB9EF5724AFAA6100FE89E6 /* InviteHandler.swift */,
 			);
 			path = ZircleService;
 			sourceTree = "<group>";
@@ -663,6 +675,7 @@
 				0D11D3D4249D05D800223146 /* Wedge.swift in Sources */,
 				0D1366AE24991A6000F0EB54 /* SceneDelegate.swift in Sources */,
 				0D11D3D0249C3AE400223146 /* Card.swift in Sources */,
+				0DB9EF5C24B001A000FE89E6 /* ShareView.swift in Sources */,
 				0D64CEB724A3CDA90080AA4F /* QRCodeGenerator.swift in Sources */,
 				0D64CEBF24A3D3A30080AA4F /* CombineSynchronizer.swift in Sources */,
 				0DD7278B24A564AF00C36D27 /* ZircleListCard.swift in Sources */,
@@ -677,10 +690,12 @@
 				0D64CEBA24A3CDA90080AA4F /* zECC+SwiftUI.swift in Sources */,
 				0D11D3D2249CE6C800223146 /* GlowEffect.swift in Sources */,
 				0D64CEB524A3CDA90080AA4F /* String+Zcash.swift in Sources */,
+				0DB9EF5A24AFF03400FE89E6 /* InvitePeople.swift in Sources */,
 				0DB5331224A6413D0090D722 /* LazyView.swift in Sources */,
 				0D11D3DB249D5F1600223146 /* NeumorphicProgressBar.swift in Sources */,
 				0D64CEBD24A3CDA90080AA4F /* SimpleLogger.swift in Sources */,
 				0D64CEBC24A3CDA90080AA4F /* BalanceUtils.swift in Sources */,
+				0DB9EF5824AFAA6100FE89E6 /* InviteHandler.swift in Sources */,
 				0D5142C824A16F9600F9AE2E /* CreateNewTypeOfZircle.swift in Sources */,
 				0DB5331424A6B8B60090D722 /* memo.pb.swift in Sources */,
 				0D64CEBB24A3CDA90080AA4F /* CameraAccessHelper.swift in Sources */,
@@ -706,6 +721,7 @@
 				0DC4B44B24ACB62400B3CBA2 /* darkside.pb.swift in Sources */,
 				0DC4B45324ACB62400B3CBA2 /* Stubs.swift in Sources */,
 				0DC4B45124ACB62400B3CBA2 /* TestDbBuilder.swift in Sources */,
+				0DB9EF5624AFA94300FE89E6 /* LiberatedInviteTests.swift in Sources */,
 				0DC4B45224ACB62400B3CBA2 /* FakeChainBuilder.swift in Sources */,
 				0DC4B44E24ACB62400B3CBA2 /* SampleLogger.swift in Sources */,
 				0DC4B45724ACF8EE00B3CBA2 /* TestCoordinator.swift in Sources */,

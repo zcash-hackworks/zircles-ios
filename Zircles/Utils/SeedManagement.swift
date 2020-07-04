@@ -128,7 +128,7 @@ extension SeedManager {
         guard keychain.get(spendingKeyKey(key)) == nil else {
             throw SeedManagerError.alreadyImported
         }
-        keychain.set(String(phrase), forKey: spendingKeyKey(key))
+        keychain.set(String(spendingKey), forKey: spendingKeyKey(key))
     }
     
     func getZircleKeys(_ key: String) throws -> (height: BlockHeight, phrase: String, spendingKey: String)? {
