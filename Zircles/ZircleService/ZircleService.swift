@@ -8,19 +8,21 @@
 
 import Foundation
 import Combine
-
+import ZcashLightClientKit
 enum ZircleServiceError: Error {
     case generalError(message: String)
 }
+
+
 protocol ZircleService {
     func createNewZircle(name: String, goal zatoshi: Int64, frequency: ZircleFrequency, endDate: ZircleEndDate, spendingKey: String) throws -> Future<ZircleEntity, Error>
     func closeZircle(name: String) throws
-    func contribute(zatoshi: Int64, zircle: ZircleEntity) throws
-    func allOpenZircles() throws -> [ZircleEntity]?
+    func contribute(zatoshi: Int64, zircle: ZircleEntity) -> Future<PendingTransactionEntity, Error>
+    func allOpenZircles() -> Future<[ZircleEntity], Error>
     func allContributions(from zircle: ZircleEntity) -> Future<[ZircleOverallContribution],Error>
     func openInvite(_ url: URL) -> Future<Int,Error>
-    
 }
+
 protocol ZircleOverallContribution {
     var from: String { get set }
     var zAddr: String { get set }
@@ -45,8 +47,8 @@ enum ZircleFrequency: Int {
     case daily = 0
     case weekly
     case monthly
-    
 }
+
 enum ZircleEndDate {
     case onDate(date: Date)
     case atWill
@@ -73,17 +75,103 @@ import MnemonicSwift
 
 extension CombineSynchronizer: ZircleService {
     
+    
+    func allOpenZircles() -> Future<[ZircleEntity], Error> {
+        Future<[ZircleEntity], Error>() { promise in
+            DispatchQueue.global().async { [weak self] in
+                guard let self = self else {
+                    return
+                }
+                
+                let accountRepository = AccountRepositoryBuilder.repository(initializer: self.initializer)
+                
+                guard let accounts = try? accountRepository.getAccounts() else {
+                    promise(.failure(ZircleServiceError.generalError(message: "could not get accounts")))
+                    return
+                }
+                
+                do {
+                    var zircles = [ZircleEntity]()
+                    for account in accounts {
+                        
+                        let foundZircles = try self.synchronizer.allClearedTransactions(accountIndex: account.account)
+                                
+                            .compactMap({ (confirmedTx) -> ZircleEntity? in
+                                
+                                guard let memo = confirmedTx.memo?.asZcashTransactionMemo() else {
+                                    return nil
+                                }
+                                let zircle = try CreateZircleMessage(jsonString: memo)
+                                
+                                return ConcreteZircle(name: zircle.name, goal: Int64(zircle.goal), frequency: zircle.frequency.rawValue, endDate: TimeInterval(zircle.end), accountIndex: account.account, address: account.address)
+                            })
+                            
+                        zircles.append(contentsOf: foundZircles)
+                        
+                        
+                    }
+                    
+                    
+                    promise(.success(zircles))
+                } catch {
+                    promise(.failure(ZircleServiceError.generalError(message: "error: \(error)")))
+                }
+            }
+        }
+    }
+    
     func closeZircle(name: String) throws {
         
     }
     
-    func contribute(zatoshi: Int64, zircle: ZircleEntity) throws {
-        
+    func contribute(zatoshi: Int64, zircle: ZircleEntity) -> Future<PendingTransactionEntity, Error> {
+        Future<PendingTransactionEntity, Error>() { promise in
+            
+            
+            guard let mainSpendingKey = SeedManager.default.getKeys()?.first else {
+                return
+            }
+            
+            guard let replyToAddr = self.initializer.getAddress() else {
+                promise(.failure(ZircleServiceError.generalError(message: "could not create contribution")))
+                return
+            }
+            
+            
+            let contribution = ContributionJoin.with { (contrib) in
+                contrib.autoid = ZircleDataStorage.default.autoId
+                contrib.replyTo = replyToAddr
+                contrib.from = ZircleDataStorage.default.username
+                
+            }
+            
+            guard let contributionMemo = try? contribution.jsonString() else {
+                promise(.failure(ZircleServiceError.generalError(message: "could not create contribution")))
+                return
+            }
+            
+            guard contributionMemo.count <= 512 else {
+                promise(.failure(ZircleServiceError.generalError(message: "could not create contribution. contribution message exceeds memo size")))
+                return
+            }
+            self.send(with: mainSpendingKey,
+                      zatoshi: zatoshi,
+                      to: zircle.address,
+                      memo: contributionMemo,
+                      from:  zircle.accountIndex)
+                .sink { (errorCompletion) in
+                    switch errorCompletion {
+                    case .failure(let error):
+                        promise(.failure(error))
+                    default:
+                        break
+                    }
+                } receiveValue: { (pendingTransaction) in
+                    promise(.success(pendingTransaction))
+                }.store(in: &self.cancellables)
+        }
     }
     
-    func allOpenZircles() throws -> [ZircleEntity]? {
-        nil
-    }
     
     func allContributions(from zircle: ZircleEntity) -> Future<[ZircleOverallContribution], Error> {
         Future<[ZircleOverallContribution], Error>() { promise in
@@ -132,8 +220,8 @@ extension CombineSynchronizer: ZircleService {
                             return
                         }
                         
-                     
-                     
+                        
+                        
                         // import extended viewing key
                         let accountIndex = try self.initializer.importExtendedFullViewingKey(extendedViewingKey)
                         
@@ -157,15 +245,15 @@ extension CombineSynchronizer: ZircleService {
                         
                         // create zircle struct
                         let zircle = ConcreteZircle(name: name,
-                                       goal: zatoshi,
-                                       frequency: frequency.rawValue,
-                                       endDate: end,
-                                       accountIndex: Int(accountIndex),
-                                       address: zAddr)
+                                                    goal: zatoshi,
+                                                    frequency: frequency.rawValue,
+                                                    endDate: end,
+                                                    accountIndex: Int(accountIndex),
+                                                    address: zAddr)
                         
-                      
+                        
                         // get supporting wallet spending keys to create zircle
-                      
+                        
                         
                         guard let freq = CreateZircleMessage.ContributionFrequency(rawValue: zircle.frequency) else {
                             promise(.failure(ZircleServiceError.generalError(message: "could not create frequency with value \(zircle.frequency)")))
@@ -189,10 +277,10 @@ extension CombineSynchronizer: ZircleService {
                             return
                         }
                         // save before sending
-                       try SeedManager.default.saveKeys(name,
-                                                        phrase: seedPhrase,
-                                                        height: height,
-                                                        spendingKey: extendedSpendingKey)
+                        try SeedManager.default.saveKeys(name,
+                                                         phrase: seedPhrase,
+                                                         height: height,
+                                                         spendingKey: extendedSpendingKey)
                         // fund zircle
                         self.send(with: spendingKey,
                                   zatoshi: 1000,
@@ -200,16 +288,16 @@ extension CombineSynchronizer: ZircleService {
                                   memo: memo,
                                   from: 0)
                             .sink { errorSubscriber in
-                            switch errorSubscriber {
-                            case .failure(let underlyingError):
-                                promise(.failure(underlyingError))
-                            default:
-                                break
-                            }
-                        } receiveValue: { (p) in
-                            promise(.success(zircle))
-                        }.store(in: &storage)
-
+                                switch errorSubscriber {
+                                case .failure(let underlyingError):
+                                    promise(.failure(underlyingError))
+                                default:
+                                    break
+                                }
+                            } receiveValue: { (p) in
+                                promise(.success(zircle))
+                            }.store(in: &storage)
+                        
                     } catch {
                         promise(.failure(error))
                     }
@@ -225,6 +313,17 @@ extension CombineSynchronizer: ZircleService {
     }
     
     func openInvite(_ url: URL) throws {
+        guard let invite = LiberatedInviteHandler.parseInvite(url) else {
+            throw ZircleServiceError.generalError(message: "URL: \(url) - is not a valid liberated invite url")
+        }
+
+        
+        // this should now rewind and try to sync again.
+        self.stop()
+        
+        try initializer.rewindTo(invite.height)
+        
+        self.start(retry: true)
         
     } 
 }

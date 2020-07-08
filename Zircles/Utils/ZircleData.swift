@@ -10,6 +10,7 @@ import Foundation
 
 class ZircleDataStorage {
     static let usernameKey = "zircleusername"
+    static let autoIdKey = "autoid"
     static var `default`: ZircleDataStorage = ZircleDataStorage()
     
     private init() {}
@@ -21,4 +22,13 @@ class ZircleDataStorage {
         UserDefaults.standard.string(forKey: Self.usernameKey) ?? ""
     }
     
+    var autoId: String {
+        if let autoid = UserDefaults.standard.string(forKey: Self.autoIdKey) {
+            return autoid
+        }
+        
+        let newId = "zirclesUser\(Int.random(in: 0 ... Int.max))"
+        UserDefaults.standard.setValue(newId, forKey: Self.autoIdKey)
+        return newId
+    }
 }
